@@ -1,0 +1,6 @@
+c:\users\istin\documents\visual studio 2015\Projects\PLanguage\PLanguage\bin\Debug\PLanguage.exe.config
+c:\users\istin\documents\visual studio 2015\Projects\PLanguage\PLanguage\bin\Debug\PLanguage.exe
+c:\users\istin\documents\visual studio 2015\Projects\PLanguage\PLanguage\bin\Debug\PLanguage.pdb
+c:\users\istin\documents\visual studio 2015\Projects\PLanguage\PLanguage\obj\Debug\PLanguage.exe
+c:\users\istin\documents\visual studio 2015\Projects\PLanguage\PLanguage\obj\Debug\PLanguage.pdb
+C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\PLanguage\obj\Debug\PLanguage.csprojResolveAssemblyReference.cache

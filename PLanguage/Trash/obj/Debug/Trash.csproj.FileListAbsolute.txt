@@ -1,0 +1,6 @@
+C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\Trash\bin\Debug\Trash.exe.config
+C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\Trash\obj\Debug\Trash.csprojResolveAssemblyReference.cache
+C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\Trash\bin\Debug\Trash.exe
+C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\Trash\bin\Debug\Trash.pdb
+C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\Trash\obj\Debug\Trash.exe
+C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\Trash\obj\Debug\Trash.pdb
