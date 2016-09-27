@@ -9,14 +9,21 @@ using System.Collections;
 
 namespace GameConsole
 {
-    public static class Program
+    public class Program
     {
-        static bool exit = true;
         static int max;
         static int min;
-        static int timerValue = 1000;
+
+        static int timerValue = 10000;
+
+        static bool exit = true;
+
         static string gameWord;
-        static Timer timer;
+        static string inputWord;
+
+        static Timer timer = new Timer(timerValue);
+
+        static Game play;
 
         public static void Settings(out int max, out int min)
         {
@@ -31,23 +38,21 @@ namespace GameConsole
         }
 
         static void Main(string[] args)
-        {   
+        {
             Settings(out max, out min);
 
-            Game play = new Game(max, min);
+            play = new Game(max,min);
 
             gameWord = play.gameWord;
 
-            Console.WriteLine(gameWord);
-
-            timer = new Timer(timerValue);
+            Console.WriteLine("Your random word: " + gameWord);
+            
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
 
-            string inputWord;
-
             while (exit)
             {
+                Console.Write("-> ");
                 inputWord=Console.ReadLine();
                 play.Test(inputWord);
             };
@@ -57,7 +62,7 @@ namespace GameConsole
         {
             exit = false;
             timer.Stop();
-            Console.WriteLine();
+            Console.WriteLine(play.ToString());
         }
     }
 }

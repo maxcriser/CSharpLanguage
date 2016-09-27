@@ -67,10 +67,10 @@ namespace GameConsole
             string solution = "\nWord:\tPoints:\n----- \t-----";
             foreach (var pair in ourWords)
             {
-                solution += pair.Key + "\t" + pair.Value;
+                solution +="\n" + pair.Key + "\t" + pair.Value;
                 points += pair.Value;
             }
-            solution += "\nYour score: {0} points" + points + "\nPress 'Enter' to exit.";
+            solution += "\nYour score: " + points + " points" + "\nPress 'Enter' to exit.";
             return solution;
         }
 
