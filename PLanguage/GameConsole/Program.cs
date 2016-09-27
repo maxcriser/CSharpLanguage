@@ -30,7 +30,7 @@ namespace GameConsole
             int timerValue = 30000;
 
             string dictionaryPath = "D:/dictionary.txt";
-
+            // test
             Settings(out max, out min);
 
             Game play = new Game(dictionaryPath, timerValue, max, min); // once character
