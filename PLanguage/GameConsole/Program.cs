@@ -14,11 +14,9 @@ namespace GameConsole
         static bool exit = true;
         static int max;
         static int min;
-        static int timerValue = 30000;
+        static int timerValue = 1000;
         static string gameWord;
-        static string dictionaryPath = "D:/dictionary.txt";
         static Timer timer;
-  
 
         public static void Settings(out int max, out int min)
         {
@@ -59,7 +57,7 @@ namespace GameConsole
         {
             exit = false;
             timer.Stop();
-            Console.WriteLine("TEST");
+            Console.WriteLine();
         }
     }
 }

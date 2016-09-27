@@ -24,7 +24,6 @@ namespace GameConsole
         int minLenght;
 
         public String gameWord;
-        String intermediateWord;
 
         public Game(int max, int min)
         {
@@ -44,26 +43,6 @@ namespace GameConsole
                     ourWords.Add(key: inputWord, value: inputWord.Length);
             }
         }
-
-        //public void Play()
-        //{
-        //    InputWords();
-        //}
-
-        //public void InputWords()
-        //{
-        //    String inputWord;
-        //    do
-        //    {
-        //        Console.Write("-> ");
-        //        inputWord = Console.ReadLine().ToLower();
-
-        //        if (!inputWord.Equals(gameWord) && !ourWords.ContainsKey(inputWord) && inputWord != "" && dictionary.Contains(inputWord) && Validation(inputWord))
-        //        {
-        //            ourWords.Add(key: inputWord, value: inputWord.Length);
-        //        }
-        //    } while (exit);
-        //}
 
         public bool Validation(String inputWord)
         {
@@ -85,24 +64,15 @@ namespace GameConsole
 
         public override string ToString()
         {
-            string s = "\nWord:\tPoints:\n----- \t-----";
-
-            return s;
+            string solution = "\nWord:\tPoints:\n----- \t-----";
+            foreach (var pair in ourWords)
+            {
+                solution += pair.Key + "\t" + pair.Value;
+                points += pair.Value;
+            }
+            solution += "\nYour score: {0} points" + points + "\nPress 'Enter' to exit.";
+            return solution;
         }
-
-        //public void OutputPoints()
-        //{
-        //    Console.WriteLine("\nWord:\tPoints:\n----- \t-----");
-
-        //    foreach (var pair in ourWords)
-        //    {
-        //        Console.WriteLine("{0}\t{1}", pair.Key, pair.Value);
-        //        points += pair.Value;
-        //    }
-
-        //    Console.WriteLine("\nYour score: {0} points", points);
-        //    Console.WriteLine("\nPress 'Enter' to exit.");
-        //}
 
         public String RandomWord()
         {
