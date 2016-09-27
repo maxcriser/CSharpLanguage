@@ -4,3 +4,6 @@ C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\GameConsole\bin\D
 C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\GameConsole\obj\Debug\GameConsole.exe
 C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\GameConsole\obj\Debug\GameConsole.pdb
 C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\GameConsole\obj\Debug\GameConsole.csprojResolveAssemblyReference.cache
+D:\GitHub Projects\CSharpLanguage\PLanguage\GameConsole\bin\Debug\GameConsole.exe.config
+D:\GitHub Projects\CSharpLanguage\PLanguage\GameConsole\obj\Debug\GameConsole.exe
+D:\GitHub Projects\CSharpLanguage\PLanguage\GameConsole\obj\Debug\GameConsole.pdb
