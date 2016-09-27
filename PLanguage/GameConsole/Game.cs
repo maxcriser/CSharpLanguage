@@ -10,72 +10,65 @@ namespace GameConsole
 {
     class Game
     {
-        int points;
-        int maxLenght;
-        int minLenght;
-        int valueTimer;
 
-        bool exit;
-        bool flag;
+        static List<String> dictionary = new List<String>();
 
-        String path;
-        String gameWord;
-        String intermediateWord;
+        static ReadDictionary words = new ReadDictionary();
 
-        static Timer timer;
-
-        ReadDictionary words = new ReadDictionary();
-
-        List<String> dictionary = new List<String>();
+        static string dictionaryPath= "D:/dictionary.txt";
 
         Dictionary<string, int> ourWords = new Dictionary<string, int>();
 
-        public Game(string dictionaryPath, int timer, int max, int min)
-        {
-            exit = true;
+        int points;
+        int maxLenght;
+        int minLenght;
 
+        public String gameWord;
+        String intermediateWord;
+
+        public Game(int max, int min)
+        {
             points = 0;
             maxLenght = max;
             minLenght = min;
-            valueTimer = timer;
-            path = dictionaryPath;
 
-            dictionary = words.Read(path);
+            dictionary = words.Read(dictionaryPath);
 
-            Play();
+            gameWord = RandomWord();      
         }
 
-        public void Play()
+        public void Test(String inputWord)
         {
-            Console.WriteLine("Your RANDOM WORD: {0}", gameWord = RandomWord(dictionary.Count - 1));
-            gameWord=gameWord.ToLower();
-
-            timer = new Timer(valueTimer);
-            timer.Elapsed += Timer_Elapsed;
-            timer.Start();
-
-            InputWords();
-        }
-
-        public void InputWords()
-        {
-            String inputWord;
-            do
+            if (!inputWord.Equals(gameWord) && !ourWords.ContainsKey(inputWord) && inputWord != "" && dictionary.Contains(inputWord) && Validation(inputWord))
             {
-                Console.Write("-> ");
-                inputWord = Console.ReadLine().ToLower();
-                
-                if (!inputWord.Equals(gameWord) && !ourWords.ContainsKey(inputWord) && inputWord != "" && dictionary.Contains(inputWord) && Validation(inputWord))
-                {
                     ourWords.Add(key: inputWord, value: inputWord.Length);
-                }
-            } while (exit);
+            }
         }
+
+        //public void Play()
+        //{
+        //    InputWords();
+        //}
+
+        //public void InputWords()
+        //{
+        //    String inputWord;
+        //    do
+        //    {
+        //        Console.Write("-> ");
+        //        inputWord = Console.ReadLine().ToLower();
+
+        //        if (!inputWord.Equals(gameWord) && !ourWords.ContainsKey(inputWord) && inputWord != "" && dictionary.Contains(inputWord) && Validation(inputWord))
+        //        {
+        //            ourWords.Add(key: inputWord, value: inputWord.Length);
+        //        }
+        //    } while (exit);
+        //}
 
         public bool Validation(String inputWord)
         {
-            flag = true;
-            intermediateWord = gameWord;
+            bool flag = true;
+            string intermediateWord = gameWord;
 
             for (int i = 0; i < inputWord.Length; i++)
             {
@@ -87,16 +80,7 @@ namespace GameConsole
                     intermediateWord = intermediateWord.Remove(intermediateWord.IndexOf(inputWord[i]), 1);
                 }
             }
-
             return flag;
-        }
-
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            exit = false;
-
-            timer.Stop();
-            OutputPoints();
         }
 
         public override string ToString()
@@ -106,27 +90,27 @@ namespace GameConsole
             return s;
         }
 
-        public void OutputPoints()
-        {
-            Console.WriteLine("\nWord:\tPoints:\n----- \t-----");
+        //public void OutputPoints()
+        //{
+        //    Console.WriteLine("\nWord:\tPoints:\n----- \t-----");
 
-            foreach (var pair in ourWords)
-            {
-                Console.WriteLine("{0}\t{1}", pair.Key, pair.Value);
-                points += pair.Value;
-            }
+        //    foreach (var pair in ourWords)
+        //    {
+        //        Console.WriteLine("{0}\t{1}", pair.Key, pair.Value);
+        //        points += pair.Value;
+        //    }
 
-            Console.WriteLine("\nYour score: {0} points", points);
-            Console.WriteLine("\nPress 'Enter' to exit.");
-        }
+        //    Console.WriteLine("\nYour score: {0} points", points);
+        //    Console.WriteLine("\nPress 'Enter' to exit.");
+        //}
 
-        public String RandomWord(int maxCount)
+        public String RandomWord()
         {
             Random random = new Random();
             String rndWord;
             do
             {
-                rndWord = dictionary[random.Next(maxCount)];
+                rndWord = dictionary[random.Next(dictionary.Count-1)];
             } while (rndWord.Length > maxLenght || rndWord.Length < minLenght);
             return rndWord;
         }

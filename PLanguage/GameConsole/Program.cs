@@ -11,6 +11,15 @@ namespace GameConsole
 {
     public static class Program
     {
+        static bool exit = true;
+        static int max;
+        static int min;
+        static int timerValue = 30000;
+        static string gameWord;
+        static string dictionaryPath = "D:/dictionary.txt";
+        static Timer timer;
+  
+
         public static void Settings(out int max, out int min)
         {
             do {
@@ -24,16 +33,33 @@ namespace GameConsole
         }
 
         static void Main(string[] args)
-        {
-            int max;
-            int min;
-            int timerValue = 30000;
-
-            string dictionaryPath = "D:/dictionary.txt";
-            // test
+        {   
             Settings(out max, out min);
 
-            Game play = new Game(dictionaryPath, timerValue, max, min); // once character
+            Game play = new Game(max, min);
+
+            gameWord = play.gameWord;
+
+            Console.WriteLine(gameWord);
+
+            timer = new Timer(timerValue);
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+
+            string inputWord;
+
+            while (exit)
+            {
+                inputWord=Console.ReadLine();
+                play.Test(inputWord);
+            };
+        }
+
+        private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            exit = false;
+            timer.Stop();
+            Console.WriteLine("TEST");
         }
     }
 }
