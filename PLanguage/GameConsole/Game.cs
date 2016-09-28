@@ -13,10 +13,8 @@ namespace GameConsole
 
         static List<String> dictionary = new List<String>();
 
-        static ReadDictionary words = new ReadDictionary();
-
         static string dictionaryPath= "D:/dictionary.txt";
-
+        
         Dictionary<string, int> ourWords = new Dictionary<string, int>();
 
         int points;
@@ -31,7 +29,7 @@ namespace GameConsole
             maxLenght = max;
             minLenght = min;
 
-            dictionary = words.Read(dictionaryPath);
+            dictionary = ReadDictionary.Read(dictionaryPath); //
 
             gameWord = RandomWord();      
         }
