@@ -1,0 +1,6 @@
+D:\GitHub Projects\CSharp\PLanguage\Set2\bin\Debug\Set2.exe.config
+D:\GitHub Projects\CSharp\PLanguage\Set2\bin\Debug\Set2.exe
+D:\GitHub Projects\CSharp\PLanguage\Set2\bin\Debug\Set2.pdb
+D:\GitHub Projects\CSharp\PLanguage\Set2\obj\Debug\Set2.exe
+D:\GitHub Projects\CSharp\PLanguage\Set2\obj\Debug\Set2.pdb
+D:\GitHub Projects\CSharp\PLanguage\Set2\obj\Debug\Set2.csprojResolveAssemblyReference.cache

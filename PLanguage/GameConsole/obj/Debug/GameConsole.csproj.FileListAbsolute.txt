@@ -10,3 +10,6 @@ D:\GitHub Projects\CSharpLanguage\PLanguage\GameConsole\obj\Debug\GameConsole.pd
 D:\GitHub Projects\CSharpLanguage\PLanguage\GameConsole\obj\Debug\GameConsole.csprojResolveAssemblyReference.cache
 D:\GitHub Projects\CSharpLanguage\PLanguage\GameConsole\bin\Debug\GameConsole.exe
 D:\GitHub Projects\CSharpLanguage\PLanguage\GameConsole\bin\Debug\GameConsole.pdb
+D:\GitHub Projects\CSharp\PLanguage\GameConsole\bin\Debug\GameConsole.exe.config
+D:\GitHub Projects\CSharp\PLanguage\GameConsole\obj\Debug\GameConsole.pdb
+D:\GitHub Projects\CSharp\PLanguage\GameConsole\obj\Debug\GameConsole.csprojResolveAssemblyReference.cache
