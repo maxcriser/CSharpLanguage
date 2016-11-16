@@ -1,0 +1,17 @@
+using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(@"D:\Не новый текстовый документ.txt"))
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    file.WriteLine("");
+                }
+            }
+
+____________________________________
+
+ StreamReader stream = new StreamReader(PATH, Encoding.GetEncoding(1251));
+            while (!stream.EndOfStream)
+            {
+                String line = stream.ReadLine().ToLower();
+                String[] array = line.Split();
+            }
