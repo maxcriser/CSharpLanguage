@@ -19,3 +19,4 @@ D:\GitHub Projects\CSharp\qnote\qnote\obj\Debug\qnote.Properties.Resources.resou
 D:\GitHub Projects\CSharp\qnote\qnote\obj\Debug\qnote.csproj.GenerateResource.Cache
 D:\GitHub Projects\CSharp\qnote\qnote\bin\Debug\qnote.exe
 D:\GitHub Projects\CSharp\qnote\qnote\bin\Debug\qnote.pdb
+D:\GitHub Projects\CSharp\qnote\qnote\obj\Debug\qnote.SignIn.resources

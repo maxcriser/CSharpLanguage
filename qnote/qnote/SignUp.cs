@@ -30,7 +30,7 @@ namespace qnote
             if (checkBox1.Checked)
             {
                 this.Hide();
-                MainActivity main = new MainActivity(textBox1.Text);
+                MainActivity main = new MainActivity(textBox2.Text);
                 main.ShowDialog();
                 this.Close();
             }
