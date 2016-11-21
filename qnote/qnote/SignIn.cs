@@ -19,6 +19,8 @@ namespace qnote
         public SignIn()
         {
             InitializeComponent();
+            profiles = new Dictionary<String, String>();
+            readProfiles();
         }
 
         void readProfiles()
@@ -47,14 +49,17 @@ namespace qnote
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (var w in profiles)
+            if (textBox2.Text != String.Empty && textBox3.Text != String.Empty)
             {
-                if (w.Key.Equals(textBox2.Text) && w.Value.Equals(textBox3.Text))
+                foreach (var w in profiles)
                 {
-                    this.Hide();
-                    MainActivity main = new MainActivity(textBox2.Text);
-                    main.ShowDialog();
-                    this.Close();
+                    if (w.Key.Equals(textBox2.Text) && w.Value.Equals(textBox3.Text))
+                    {
+                        this.Hide();
+                        MainActivity main = new MainActivity(textBox2.Text);
+                        main.ShowDialog();
+                        this.Close();
+                    }
                 }
             }
         }
