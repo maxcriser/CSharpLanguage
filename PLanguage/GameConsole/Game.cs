@@ -13,8 +13,8 @@ namespace GameConsole
 
         static List<String> dictionary = new List<String>();
 
-        static string dictionaryPath= "D:/dictionary.txt";
-        
+        static string dictionaryPath = "D:/dictionary.txt";
+
         Dictionary<string, int> ourWords = new Dictionary<string, int>();
 
         int points;
@@ -29,16 +29,16 @@ namespace GameConsole
             maxLenght = max;
             minLenght = min;
 
-            dictionary = ReadDictionary.Read(dictionaryPath); //
+            //  dictionary = ReadDictionary.Read(dictionaryPath);
 
-            gameWord = RandomWord();      
+            gameWord = RandomWord();
         }
 
         public void Test(String inputWord)
         {
             if (!inputWord.Equals(gameWord) && !ourWords.ContainsKey(inputWord) && inputWord != "" && dictionary.Contains(inputWord) && Validation(inputWord))
             {
-                    ourWords.Add(key: inputWord, value: inputWord.Length);
+                ourWords.Add(key: inputWord, value: inputWord.Length);
             }
         }
 
@@ -49,11 +49,13 @@ namespace GameConsole
 
             for (int i = 0; i < inputWord.Length; i++)
             {
-                if (!intermediateWord.Contains(inputWord[i])) {
+                if (!intermediateWord.Contains(inputWord[i]))
+                {
                     flag = false;
                     break;
                 }
-                else {
+                else
+                {
                     intermediateWord = intermediateWord.Remove(intermediateWord.IndexOf(inputWord[i]), 1);
                 }
             }
@@ -65,7 +67,7 @@ namespace GameConsole
             string solution = "\nWord:\tPoints:\n----- \t-----";
             foreach (var pair in ourWords)
             {
-                solution +="\n" + pair.Key + "\t" + pair.Value;
+                solution += "\n" + pair.Key + "\t" + pair.Value;
                 points += pair.Value;
             }
             solution += "\nYour score: " + points + " points" + "\nPress 'Enter' to exit.";
@@ -78,7 +80,7 @@ namespace GameConsole
             String rndWord;
             do
             {
-                rndWord = dictionary[random.Next(dictionary.Count-1)];
+                rndWord = dictionary[random.Next(dictionary.Count - 1)];
             } while (rndWord.Length > maxLenght || rndWord.Length < minLenght);
             return rndWord;
         }

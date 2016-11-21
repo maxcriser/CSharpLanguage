@@ -1,0 +1,5 @@
+D:\GitHub Projects\CSharp\PLanguage\TrainToHellMOFA\bin\Debug\TrainToHellMOFA.exe.config
+D:\GitHub Projects\CSharp\PLanguage\TrainToHellMOFA\bin\Debug\TrainToHellMOFA.exe
+D:\GitHub Projects\CSharp\PLanguage\TrainToHellMOFA\bin\Debug\TrainToHellMOFA.pdb
+D:\GitHub Projects\CSharp\PLanguage\TrainToHellMOFA\obj\Debug\TrainToHellMOFA.exe
+D:\GitHub Projects\CSharp\PLanguage\TrainToHellMOFA\obj\Debug\TrainToHellMOFA.pdb

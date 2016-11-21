@@ -22,10 +22,11 @@ namespace Set2
         {
             StreamReader readFile = new StreamReader(DATA_PATH, Encoding.GetEncoding(1251));
             String input = null;
-
+            
             while ((input = readFile.ReadLine()) != null)
             {
                 text+=input;
+                text += "\n";
             }
             readFile.Close();
 

@@ -4,3 +4,9 @@ c:\users\istin\documents\visual studio 2015\Projects\PLanguage\PLanguage\bin\Deb
 c:\users\istin\documents\visual studio 2015\Projects\PLanguage\PLanguage\obj\Debug\PLanguage.exe
 c:\users\istin\documents\visual studio 2015\Projects\PLanguage\PLanguage\obj\Debug\PLanguage.pdb
 C:\Users\IstiN\Documents\Visual Studio 2015\Projects\PLanguage\PLanguage\obj\Debug\PLanguage.csprojResolveAssemblyReference.cache
+D:\GitHub Projects\CSharp\PLanguage\PLanguage\bin\Debug\PLanguage.exe.config
+D:\GitHub Projects\CSharp\PLanguage\PLanguage\obj\Debug\PLanguage.pdb
+D:\GitHub Projects\CSharp\PLanguage\PLanguage\bin\Debug\PLanguage.exe
+D:\GitHub Projects\CSharp\PLanguage\PLanguage\bin\Debug\PLanguage.pdb
+D:\GitHub Projects\CSharp\PLanguage\PLanguage\obj\Debug\PLanguage.csprojResolveAssemblyReference.cache
+D:\GitHub Projects\CSharp\PLanguage\PLanguage\obj\Debug\PLanguage.exe
