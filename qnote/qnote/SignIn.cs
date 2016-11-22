@@ -13,25 +13,9 @@ namespace qnote
 {
     public partial class SignIn : Form
     {
-        String PATH = @"D:\qnote\profiles.txt";
-        Dictionary<String, String> profiles;
-
         public SignIn()
         {
             InitializeComponent();
-            profiles = new Dictionary<String, String>();
-            readProfiles();
-        }
-
-        void readProfiles()
-        {
-            StreamReader stream = new StreamReader(PATH, Encoding.GetEncoding(1251));
-            while (!stream.EndOfStream)
-            {
-                String line = stream.ReadLine().ToLower();
-                String[] array = line.Split();
-                profiles.Add(key: array[0], value: array[1]);
-            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -51,7 +35,7 @@ namespace qnote
         {
             if (textBox2.Text != String.Empty && textBox3.Text != String.Empty)
             {
-                foreach (var w in profiles)
+                foreach (var w in SignUp.profiles)
                 {
                     if (w.Key.Equals(textBox2.Text) && w.Value.Equals(textBox3.Text))
                     {

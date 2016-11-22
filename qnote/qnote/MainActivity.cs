@@ -13,12 +13,21 @@ namespace qnote
     public partial class MainActivity : Form
     {
         private String userName;
+        public static List<List<String>> notesWorkloads;
+
 
         public MainActivity(String userName)
         {
             InitializeComponent();
             this.userName = userName;
             label2.Text = userName;
+            notesWorkloads = new List<List<String>>();
+
+        }
+
+        void readNotesWorkloads()
+        {
+            //SignUp.WORKLOADS;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,6 +66,14 @@ namespace qnote
         private void button6_Click(object sender, EventArgs e)
         {
             startNotes(button6.Text);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUp logOut = new SignUp();
+            logOut.ShowDialog();
+            this.Close();
         }
     }
 }
