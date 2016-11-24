@@ -12,7 +12,7 @@ using System.IO;
 namespace qnote
 {
     public partial class SignIn : Form
-    {
+    {    
         public SignIn()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace qnote
                     if (w.Key.Equals(textBox2.Text) && w.Value.Equals(textBox3.Text))
                     {
                         this.Hide();
-                        MainActivity main = new MainActivity(textBox2.Text);
+                        MainActivity main = new MainActivity(textBox2.Text, textBox3.Text);
                         main.ShowDialog();
                         this.Close();
                     }
