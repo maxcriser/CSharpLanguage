@@ -13,15 +13,29 @@ namespace qnote
 {
     public partial class SignUp : Form
     {
+        public static List<String> curProfile;
+        public static char SEPARATOR = '|';
         public static string ALL = @"\all.txt";
         public static string WORKLOADS = @"\workloads.txt";
         public static string EVERYDAY_TASKS = @"\everyday_tasks.txt";
         public static string BOOKS_TO_READ = @"\books_to_read.txt";
         public static string MOVIES_FOR_VIEWING = @"\movies_for_viewing.txt";
         public static string SITE_VISITS = @"\site_visits.txt";
+        public static string path = @"D:\qnote\users\";
+        public static string pathCurProfile = @"D:\qnote\status.txt";
+        public static Color toolbarColor = Color.FromArgb(255, 19, 89, 149);
+        public static Color frameLineColor = Color.FromArgb(255, 75, 147, 206);
+        public static Color backColor = Color.FromArgb(255, 241, 241, 241);
+        public static Color eventColor = Color.FromArgb(255, 204, 227, 245);
+        public static Color whiteColor = Color.FromArgb(255, 249, 249, 249);
+        public static Color favColor = Color.FromArgb(255, 16, 110, 190);
+        public static Color secTextColor = Color.FromArgb(255, 80, 80, 80);
+        public static Color selectPage = Color.FromArgb(255, 5, 80, 146);
+        public static Color backBackgroundPage = Color.FromArgb(255, 0, 91, 158);
+        public static Color backgroundDoneRow = Color.FromArgb(255, 179, 238, 147);
+        public static Color backgroundSelectRow = Color.FromArgb(255, 179, 214, 242);
 
         String[] notesList = {
-            ALL,
             WORKLOADS,
             EVERYDAY_TASKS,
             BOOKS_TO_READ,
@@ -37,6 +51,32 @@ namespace qnote
             InitializeComponent();
             profiles = new Dictionary<String, String>();
             readProfiles();
+            curProfile = new List<String>();
+            readCurProfile();
+            checkStartProfile();
+        }
+
+        void readCurProfile()
+        {
+            StreamReader stream = new StreamReader(pathCurProfile, Encoding.GetEncoding(1251));
+            while (!stream.EndOfStream)
+            {
+                String line = stream.ReadLine();
+                if (line != String.Empty)
+                    curProfile.Add(line);
+            }
+            stream.Close();
+        }
+
+        void checkStartProfile()
+        {
+            if (curProfile.Count != 0)
+            {
+                this.Hide();
+                MainActivity main = new MainActivity(curProfile[0], curProfile[1]);
+                main.ShowDialog();
+                this.Close();
+            }
         }
 
         void readProfiles()
@@ -44,7 +84,7 @@ namespace qnote
             StreamReader stream = new StreamReader(PATH, Encoding.GetEncoding(1251));
             while (!stream.EndOfStream)
             {
-                String line = stream.ReadLine().ToLower();
+                String line = stream.ReadLine();
                 String[] array = line.Split();
                 profiles.Add(key: array[0], value: array[1]);
             }
@@ -70,7 +110,7 @@ namespace qnote
                         createFolder(textBox2.Text);
                         writeProfileToFile(textBox2.Text, textBox3.Text);
                         this.Hide();
-                        MainActivity main = new MainActivity(textBox2.Text);
+                        MainActivity main = new MainActivity(textBox2.Text, textBox3.Text);
                         main.ShowDialog();
                         this.Close();
                     }
@@ -80,14 +120,13 @@ namespace qnote
 
         void writeProfileToFile(String username, String password)
         {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(PATH, true);
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(PATH, true, Encoding.UTF8);
             writer.WriteLine(username + " " + password);
             writer.Close();
         }
 
         void createFolder(String username)
         {
-            String path = @"D:\qnote\users\";
             String pathFolder = path + @username;
             Directory.CreateDirectory(pathFolder);
             for (int i = 0; i < notesList.Length; i++)
