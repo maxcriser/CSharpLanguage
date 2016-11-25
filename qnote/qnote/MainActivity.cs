@@ -15,17 +15,40 @@ namespace qnote
         private String userName;
         private String password;
         public static List<List<String>> notesWorkloads;
-        
-
 
         public MainActivity(String userName, String password)
         {
             InitializeComponent();
             this.userName = userName;
             this.password = password;
-            label2.Text = userName;
             notesWorkloads = new List<List<String>>();
 
+            pictureBox1.MouseEnter += button_Enter;
+            pictureBox1.MouseLeave += button_Leave;
+
+        }
+
+        private void button_Leave(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            if (control==pictureBox1)
+            {
+                pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_any_notes_leave.png");
+            }
+            else if(true){
+            }
+        }
+
+        private void button_Enter(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            if (control == pictureBox1)
+            {
+                pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_any_notes_enter.png");
+            }
+            else if (true)
+            {
+            }
         }
 
         void readNotesWorkloads()
@@ -35,7 +58,7 @@ namespace qnote
 
         private void button1_Click(object sender, EventArgs e)
         {
-            startNotes(button1.Text, SignUp.ALL);
+            
         }
 
         private void startNotes(String typeName, String typePath)
@@ -84,6 +107,11 @@ namespace qnote
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            startNotes("", SignUp.ALL);
         }
     }
 }
