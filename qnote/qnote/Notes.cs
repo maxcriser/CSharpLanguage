@@ -91,7 +91,7 @@ namespace qnote
                 control.BackColor = Color.Purple;
         }
 
-        void gridFilling(List<List<String>> list)
+        void gridFilling(List<Note> list)
         {
             grid.Rows.Clear();
             if (notes.Count != 0)
@@ -99,9 +99,9 @@ namespace qnote
                 grid.Show();
                 Bitmap icFav;
                 Bitmap icFavLine;
-                foreach (List<String> s in list)
+                foreach (Note s in list)
                 {
-                    if (s[1].Equals("fav"))
+                    if (s.favourite)
                     {
                         icFav = SignUp.fav;
                         icFavLine = SignUp.fav_line;
@@ -111,14 +111,14 @@ namespace qnote
                         icFav = SignUp.unfav;
                         icFavLine = SignUp.unfav_line;
                     }
-                    grid.Rows.Add(icFavLine, s[0], SignUp.delete, icFav);
-                    if (s[1].Equals("done"))
+                    grid.Rows.Add(icFavLine, s.text, SignUp.delete, icFav);
+                    if (s.done)
                     {
-                        grid[1, grid.RowCount - 1].Style.Font = new Font("Tahoma", 12, FontStyle.Strikeout);
+                        grid[1, grid.RowCount - 1].Style.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Strikeout);
                     }
                     else
                     {
-                        grid[1, grid.RowCount - 1].Style.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                        grid[1, grid.RowCount - 1].Style.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Regular);
                     }
                 }
 
@@ -157,17 +157,24 @@ namespace qnote
         {
             if (e.ColumnIndex.Equals(1))
             {
-                notes[e.RowIndex][2] = "done";
-            }
-            if (e.ColumnIndex.Equals(3))
-            {
-                if (notes[e.RowIndex][1].Equals("fav"))
+                if (notes[e.RowIndex].done)
                 {
-                    notes[e.RowIndex][1] = "unfav";
+                    notes[e.RowIndex].done = false;
                 }
                 else
                 {
-                    notes[e.RowIndex][1] = "fav";
+                    notes[e.RowIndex].done = true;
+                }
+            }
+            if (e.ColumnIndex.Equals(3))
+            {
+                if (notes[e.RowIndex].favourite)
+                {
+                    notes[e.RowIndex].favourite = false;
+                }
+                else
+                {
+                    notes[e.RowIndex].favourite = true;
                 }
             }
             if (e.ColumnIndex.Equals(2))
@@ -200,9 +207,19 @@ namespace qnote
         {
             String curPath = @"D:\qnote\users\" + @username + typePath;
             System.IO.StreamWriter writer = new System.IO.StreamWriter(curPath, false, Encoding.UTF8);
-            foreach (List<String> w in notes)
+            foreach (Note w in notes)
             {
-                writer.WriteLine(w[0] + SignUp.SEPARATOR + w[1] + SignUp.SEPARATOR + w[2]);
+                String textFavourite = "unfav";
+                String textDone = "not";
+                if (w.favourite)
+                {
+                    textFavourite = "fav";
+                }
+                if (w.done)
+                {
+                    textDone = "done";
+                }
+                writer.WriteLine(w.text + SignUp.SEPARATOR + textFavourite + SignUp.SEPARATOR + textDone);
             }
             writer.Close();
         }
@@ -216,12 +233,10 @@ namespace qnote
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != String.Empty)
+            String newText = String.Empty;
+            if (newText != String.Empty)
             {
-                List<String> newNote = new List<String>();
-                newNote.Add(textBox1.Text);
-                newNote.Add("unfav");
-                newNote.Add("not");
+                Note newNote = new Note(newText, false, false);
                 notes.Add(newNote);
                 notifyAll();
                 textBox1.Clear();
