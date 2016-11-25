@@ -17,7 +17,7 @@ namespace qnote
         public static string folderPATH = @"D:\qnote\";
         public static string PATH = @"D:\qnote\profiles.txt";
         public static string statusPATH = @"D:\qnote\status.txt";
-        List<User> profiles = new List<User>();
+        static List<User> profiles = new List<User>();
         List<User> statusProfile = new List<User>();
 
         public static string ALL = @"\all.txt";
@@ -51,8 +51,7 @@ namespace qnote
         void checkStatus()
         {
             statusProfile = Backend.ReadProfiles(statusPATH);
-            StreamReader stream = new StreamReader(statusPATH, Encoding.GetEncoding(1251));
-
+            
             if (statusProfile.Count!=0)
             {
                 this.Hide();

@@ -386,11 +386,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(363, 249);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(368, 248);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 24);
+            this.label1.Size = new System.Drawing.Size(204, 20);
             this.label1.TabIndex = 40;
             this.label1.Text = "YOU HAVE NO NOTES";
             // 
@@ -399,14 +399,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 321);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox6);
             this.ForeColor = System.Drawing.SystemColors.Highlight;
             this.Name = "Notes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

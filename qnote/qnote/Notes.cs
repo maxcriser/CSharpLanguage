@@ -106,6 +106,15 @@ namespace qnote
         {
             notes = new List<List<String>>();
 
+            if (notes.Count != 0)
+            {
+                grid.Show();
+            }
+            else
+            {
+                grid.Hide();
+            }
+
             String curPath = @"D:\qnote\users\" + @username + path;
             StreamReader stream = new StreamReader(curPath, Encoding.GetEncoding(1251));
             while (!stream.EndOfStream)

@@ -33,29 +33,22 @@ namespace qnote
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != String.Empty && textBox3.Text != String.Empty)
+            String username = textBox2.Text;
+            String password = textBox3.Text;
+            if (username != String.Empty && password != String.Empty)
             {
-                foreach (var w in SignUp.profiles)
+                foreach (var w in Backend.ReadProfiles(SignUp.PATH))
                 {
-                    if (w.Key.Equals(textBox2.Text) && w.Value.Equals(textBox3.Text))
+                    if (w.username.Equals(username) && w.password.Equals(password))
                     {
-                        writeToStatus(textBox2.Text, textBox3.Text);
+                        Backend.writeToStatus(username, password, SignUp.statusPATH);
                         this.Hide();
-                        MainActivity main = new MainActivity(textBox2.Text, textBox3.Text);
+                        MainActivity main = new MainActivity(username, password);
                         main.ShowDialog();
                         this.Close();
                     }
                 }
             }
-        }
-
-        void writeToStatus(String username, String password)
-        {
-            //TODO maybe ex
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(SignUp.statusPATH, false);
-            writer.WriteLine(username);
-            writer.WriteLine(password);
-            writer.Close();
         }
     }
 }

@@ -9,6 +9,8 @@ namespace qnote
 {
     class Backend
     {
+        public static List<User> profiles;
+
         public Backend()
         {
         }
@@ -44,7 +46,8 @@ namespace qnote
 
         public static List<User> ReadProfiles(String PATH)
         {
-            List<User> profiles = new List<User>();
+            profiles = new List<User>();
+            profiles.Clear();
             StreamReader stream = new StreamReader(PATH, Encoding.GetEncoding(1251));
             while (!stream.EndOfStream)
             {
