@@ -17,8 +17,8 @@ namespace qnote
         public static string folderPATH = @"D:\qnote\";
         public static string PATH = @"D:\qnote\profiles.txt";
         public static string statusPATH = @"D:\qnote\status.txt";
-        public static Dictionary<String, String> profiles;
-        public static List<String> statusProfile;
+        List<User> profiles = new List<User>();
+        List<User> statusProfile = new List<User>();
 
         public static string ALL = @"\all.txt";
         public static string WORKLOADS = @"\workloads.txt";
@@ -44,44 +44,22 @@ namespace qnote
         public SignUp()
         {
             InitializeComponent();
-            statusProfile = new List<String>();
+            profiles = Backend.ReadProfiles(PATH);
             checkStatus();
-            profiles = new Dictionary<String, String>();
-            readProfiles();
         }
 
         void checkStatus()
         {
+            statusProfile = Backend.ReadProfiles(statusPATH);
             StreamReader stream = new StreamReader(statusPATH, Encoding.GetEncoding(1251));
-            while (!stream.EndOfStream)
-            {
-                String line = stream.ReadLine();
-                if (line != String.Empty)
-                {
-                    statusProfile.Add(line);
-                }
-            }
-            stream.Close();
 
             if (statusProfile.Count!=0)
             {
                 this.Hide();
-                MainActivity main = new MainActivity(statusProfile[0], statusProfile[1]);
+                MainActivity main = new MainActivity(statusProfile[0].username, statusProfile[0].password);
                 main.ShowDialog();
                 this.Close();
             }
-        }
-
-        void readProfiles()
-        {
-            StreamReader stream = new StreamReader(PATH, Encoding.GetEncoding(1251));
-            while (!stream.EndOfStream)
-            {
-                String line = stream.ReadLine();
-                String[] array = line.Split();
-                profiles.Add(key: array[0], value: array[1]);
-            }
-            stream.Close();
         }
 
         private void signin_Click(object sender, EventArgs e)
@@ -92,52 +70,39 @@ namespace qnote
             this.Close();
         }
 
-        void writeToStatus(String username, String password)
+        private Boolean checkForUsers(String username)
         {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(statusPATH, false);
-            writer.WriteLine(username);
-            writer.WriteLine(password);
-            writer.Close();
+            foreach(User w in profiles)
+            {
+                if (w.username.Equals(username))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void signup_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked && textBox2.Text != String.Empty && textBox3.Text != String.Empty && textBox4.Text != String.Empty)
+            String username = textBox2.Text;
+            String password = textBox3.Text;
+            String passwordConfirm = textBox4.Text;
+
+            if (checkBox1.Checked && username != String.Empty && password != String.Empty && passwordConfirm != String.Empty)
             {
-                if (textBox3.Text == textBox4.Text)
+                if (password == passwordConfirm)
                 {
-                    if (!profiles.ContainsKey(textBox2.Text))
+                    if (checkForUsers(username))
                     {
-                        writeToStatus(textBox2.Text, textBox3.Text);
-                        createFolder(textBox2.Text);
-                        writeProfileToFile(textBox2.Text, textBox3.Text);
+                        Backend.writeToStatus(username, password, statusPATH);
+                        Backend.createFolder(username, notesList);
+                        Backend.writeProfileToFile(username, password, PATH);
                         this.Hide();
-                        MainActivity main = new MainActivity(textBox2.Text, textBox3.Text);
+                        MainActivity main = new MainActivity(username, password);
                         main.ShowDialog();
                         this.Close();
                     }
                 }
-            }
-        }
-
-        void writeProfileToFile(String username, String password)
-        {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(PATH, true);
-            writer.WriteLine(username + " " + password);
-            writer.Close();
-        }
-
-        void createFolder(String username)
-        {
-            String path = @"D:\qnote\users\";
-            String pathFolder = path + @username;
-            Directory.CreateDirectory(pathFolder);
-            for (int i = 0; i < notesList.Length; i++)
-            {
-                String pathFile = pathFolder + notesList[i];
-                System.IO.StreamWriter writer = new System.IO.StreamWriter(pathFile, true);
-                //writer.WriteLine(username);
-                writer.Close();
             }
         }
     }
