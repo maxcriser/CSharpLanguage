@@ -133,6 +133,46 @@ namespace qnote.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_books_leave {
+            get {
+                object obj = ResourceManager.GetObject("btn_books_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_every_day_leave {
+            get {
+                object obj = ResourceManager.GetObject("btn_every_day_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_log_out_leave {
+            get {
+                object obj = ResourceManager.GetObject("btn_log_out_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_movies_leave {
+            get {
+                object obj = ResourceManager.GetObject("btn_movies_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_ok_leave {
             get {
                 object obj = ResourceManager.GetObject("btn_ok_leave", resourceCulture);
@@ -156,6 +196,26 @@ namespace qnote.Properties {
         internal static System.Drawing.Bitmap btn_signup_leave {
             get {
                 object obj = ResourceManager.GetObject("btn_signup_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_travels_leave {
+            get {
+                object obj = ResourceManager.GetObject("btn_travels_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_workloads_leave {
+            get {
+                object obj = ResourceManager.GetObject("btn_workloads_leave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

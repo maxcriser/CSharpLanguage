@@ -14,6 +14,21 @@ namespace qnote
     {
         private String userName;
         private String password;
+        private Image leaveALL = Image.FromFile(@"D:\qnote\img\btn_any_notes_leave.png");
+        private Image leaveWORK = Image.FromFile(@"D:\qnote\img\btn_workloads_leave.png");
+        private Image leaveEveryDay = Image.FromFile(@"D:\qnote\img\btn_every_day_leave.png");
+        private Image leaveBooks = Image.FromFile(@"D:\qnote\img\btn_books_leave.png");
+        private Image leaveMovies = Image.FromFile(@"D:\qnote\img\btn_movies_leave.png");
+        private Image leaveTravels = Image.FromFile(@"D:\qnote\img\btn_travels_leave.png");
+        private Image leaveLogOut = Image.FromFile(@"D:\qnote\img\btn_log_out_leave.png");
+
+        private Image enterALL = Image.FromFile(@"D:\qnote\img\btn_any_notes_enter.png");
+        private Image enterWORK = Image.FromFile(@"D:\qnote\img\btn_workloads_enter.png");
+        private Image enterEveryDay = Image.FromFile(@"D:\qnote\img\btn_every_day_enter.png");
+        private Image enterBooks = Image.FromFile(@"D:\qnote\img\btn_books_enter.png");
+        private Image enterMovies = Image.FromFile(@"D:\qnote\img\btn_movies_enter.png");
+        private Image enterTravels = Image.FromFile(@"D:\qnote\img\btn_travels_enter.png");
+        private Image enterLogOut = Image.FromFile(@"D:\qnote\img\btn_log_out_enter.png");
         public static List<List<String>> notesWorkloads;
 
         public MainActivity(String userName, String password)
@@ -26,16 +41,56 @@ namespace qnote
             pictureBox1.MouseEnter += button_Enter;
             pictureBox1.MouseLeave += button_Leave;
 
+            pictureBox2.MouseEnter += button_Enter;
+            pictureBox2.MouseLeave += button_Leave;
+
+            pictureBox3.MouseEnter += button_Enter;
+            pictureBox3.MouseLeave += button_Leave;
+
+            pictureBox4.MouseEnter += button_Enter;
+            pictureBox4.MouseLeave += button_Leave;
+            
+            pictureBox8.MouseEnter += button_Enter;
+            pictureBox8.MouseLeave += button_Leave;
+
+            pictureBox9.MouseEnter += button_Enter;
+            pictureBox9.MouseLeave += button_Leave;
+
+            pictureBox10.MouseEnter += button_Enter;
+            pictureBox10.MouseLeave += button_Leave;
+
         }
 
         private void button_Leave(object sender, EventArgs e)
         {
             Control control = sender as Control;
-            if (control==pictureBox1)
+            if (control == pictureBox1)
             {
-                pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_any_notes_leave.png");
+                pictureBox1.Image = leaveALL;
             }
-            else if(true){
+            else if (control == pictureBox2)
+            {
+                pictureBox2.Image = leaveWORK;
+            }
+            else if (control == pictureBox3)
+            {
+                pictureBox3.Image = leaveEveryDay;
+            }
+            else if (control == pictureBox4)
+            {
+                pictureBox4.Image = leaveBooks;
+            }
+            else if (control == pictureBox8)
+            {
+                pictureBox8.Image = leaveMovies;
+            }
+            else if (control == pictureBox9)
+            {
+                pictureBox9.Image = leaveTravels;
+            }
+            else if (control == pictureBox10)
+            {
+                pictureBox10.Image = leaveLogOut;
             }
         }
 
@@ -44,10 +99,31 @@ namespace qnote
             Control control = sender as Control;
             if (control == pictureBox1)
             {
-                pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_any_notes_enter.png");
+                pictureBox1.Image = enterALL;
             }
-            else if (true)
+            else if (control == pictureBox2)
             {
+                pictureBox2.Image = enterWORK;
+            }
+            else if (control == pictureBox3)
+            {
+                pictureBox3.Image = enterEveryDay;
+            }
+            else if (control == pictureBox4)
+            {
+                pictureBox4.Image = enterBooks;
+            }
+            else if (control == pictureBox8)
+            {
+                pictureBox8.Image = enterMovies;
+            }
+            else if (control == pictureBox9)
+            {
+                pictureBox9.Image = enterTravels;
+            }
+            else if (control == pictureBox10)
+            {
+                pictureBox10.Image = enterLogOut;
             }
         }
 
@@ -71,37 +147,29 @@ namespace qnote
 
         private void button2_Click(object sender, EventArgs e)
         {
-            startNotes(button2.Text, SignUp.WORKLOADS);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            startNotes(button3.Text, SignUp.EVERYDAY_TASKS);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            startNotes(button4.Text, SignUp.BOOKS_TO_READ);
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            startNotes(button5.Text, SignUp.MOVIES_FOR_VIEWING);
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            startNotes(button6.Text, SignUp.SITE_VISITS);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(SignUp.statusPATH, false);
-            writer.Close();
-            this.Hide();
-            SignIn inS = new SignIn();
-            inS.ShowDialog();
-            this.Close();
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -112,6 +180,41 @@ namespace qnote
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             startNotes("", SignUp.ALL);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            startNotes("", SignUp.WORKLOADS);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            startNotes("", SignUp.EVERYDAY_TASKS);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            startNotes("", SignUp.BOOKS_TO_READ);
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            startNotes("", SignUp.MOVIES_FOR_VIEWING);
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            startNotes("", SignUp.SITE_VISITS);
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(SignUp.statusPATH, false);
+            writer.Close();
+            this.Hide();
+            SignIn inS = new SignIn();
+            inS.ShowDialog();
+            this.Close();
         }
     }
 }
