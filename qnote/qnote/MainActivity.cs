@@ -15,6 +15,7 @@ namespace qnote
         private String userName;
         private String password;
         public static List<List<String>> notesWorkloads;
+        
 
 
         public MainActivity(String userName, String password)

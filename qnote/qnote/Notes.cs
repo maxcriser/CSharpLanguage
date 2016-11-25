@@ -11,7 +11,6 @@ using System.IO;
 
 namespace qnote
 {
-
     public partial class Notes : Form
     {
         private String typeName;
@@ -23,11 +22,11 @@ namespace qnote
         public Notes(String typePath, String typeName, String username, String password)
         {
             InitializeComponent();
+            textBox2.Hide();
             this.typePath = typePath;
             this.typeName = typeName;
             this.username = username;
             this.password = password;
-            label1.Text = typeName;
             notesFilling(typePath);
             gridFilling(notes);
         }
@@ -172,6 +171,30 @@ namespace qnote
                 notifyAll();
                 textBox1.Clear();
             }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            notifyAll();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            textBox2.Show();
+            textBox2.Clear();
+            pictureBox3.Hide();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            textBox2.Hide();
+            pictureBox3.Show();
+            notifyAll();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            // setFilter
         }
     }
 }
