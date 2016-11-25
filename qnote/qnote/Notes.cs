@@ -17,7 +17,7 @@ namespace qnote
         private String username;
         private String password;
         private String typePath;
-        private List<List<String>> notes;
+        private List<Note> notes;
 
         public Notes(String typePath, String typeName, String username, String password)
         {
@@ -27,6 +27,7 @@ namespace qnote
             grid.CellMouseLeave += Grid_CellMouseLeave;
 
             pictureBox1.MouseEnter += Button_MouseEnter;
+            pictureBox2.MouseEnter += Button_MouseEnter;
             label2.MouseEnter += Button_MouseEnter;
             label3.MouseEnter += Button_MouseEnter;
             label4.MouseEnter += Button_MouseEnter;
@@ -37,7 +38,8 @@ namespace qnote
             label9.MouseEnter += Button_MouseEnter;
             label10.MouseEnter += Button_MouseEnter;
 
-            pictureBox1.MouseLeave += Button_MouseLeave; ;
+            pictureBox1.MouseLeave += Button_MouseLeave;
+            pictureBox2.MouseLeave += Button_MouseLeave;
             label2.MouseLeave += Button_MouseLeave;
             label3.MouseLeave += Button_MouseLeave;
             label4.MouseLeave += Button_MouseLeave;
@@ -53,7 +55,8 @@ namespace qnote
             this.typeName = typeName;
             this.username = username;
             this.password = password;
-            notesFilling(typePath);
+
+            notes = Backend.notesFilling(typePath, username);
             gridFilling(notes);
         }
 
@@ -72,6 +75,13 @@ namespace qnote
             Control control = sender as Control;
             if (control != null)
                 control.BackColor = Color.Transparent;
+            if (control.Equals(pictureBox2))
+            {
+                if (control != null)
+                {
+                    control.BackColor = Color.White;
+                }
+            }
         }
 
         private void Button_MouseEnter(object sender, EventArgs e)
@@ -84,55 +94,41 @@ namespace qnote
         void gridFilling(List<List<String>> list)
         {
             grid.Rows.Clear();
-            Bitmap icFav;
-            Bitmap icFavLine;
-            foreach(List<String> s in list)
-            {
-                if (s[1].Equals("fav"))
-                {
-                    icFav = SignUp.fav;
-                    icFavLine = SignUp.fav_line;
-                }
-                else
-                {
-                    icFav = SignUp.unfav;
-                    icFavLine = SignUp.unfav_line;
-                }
-                grid.Rows.Add(icFavLine, s[0], SignUp.delete, icFav);
-            }
-        }
-
-        void notesFilling(String path)
-        {
-            notes = new List<List<String>>();
-
             if (notes.Count != 0)
             {
                 grid.Show();
+                Bitmap icFav;
+                Bitmap icFavLine;
+                foreach (List<String> s in list)
+                {
+                    if (s[1].Equals("fav"))
+                    {
+                        icFav = SignUp.fav;
+                        icFavLine = SignUp.fav_line;
+                    }
+                    else
+                    {
+                        icFav = SignUp.unfav;
+                        icFavLine = SignUp.unfav_line;
+                    }
+                    grid.Rows.Add(icFavLine, s[0], SignUp.delete, icFav);
+                    if (s[1].Equals("done"))
+                    {
+                        grid[1, grid.RowCount - 1].Style.Font = new Font("Tahoma", 12, FontStyle.Strikeout);
+                    }
+                    else
+                    {
+                        grid[1, grid.RowCount - 1].Style.Font = new Font("Tahoma", 12, FontStyle.Regular);
+                    }
+                }
+
             }
             else
             {
                 grid.Hide();
             }
-
-            String curPath = @"D:\qnote\users\" + @username + path;
-            StreamReader stream = new StreamReader(curPath, Encoding.GetEncoding(1251));
-            while (!stream.EndOfStream)
-            {
-                String line = stream.ReadLine();
-                if (line != String.Empty)
-                {
-                    String[] sep = line.Split(SignUp.SEPARATOR);
-                    List<String> w = new List<String>();
-                    w.Add(sep[0]);
-                    w.Add(sep[1]);
-                    w.Add(sep[2]);
-                    notes.Add(w);
-                }
-            }
-            stream.Close();
         }
-        
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -174,7 +170,7 @@ namespace qnote
                     notes[e.RowIndex][1] = "fav";
                 }
             }
-            if(e.ColumnIndex.Equals(2))
+            if (e.ColumnIndex.Equals(2))
             {
                 notes.RemoveAt(e.RowIndex);
             }
@@ -204,7 +200,7 @@ namespace qnote
         {
             String curPath = @"D:\qnote\users\" + @username + typePath;
             System.IO.StreamWriter writer = new System.IO.StreamWriter(curPath, false, Encoding.UTF8);
-            foreach(List<String> w in notes)
+            foreach (List<String> w in notes)
             {
                 writer.WriteLine(w[0] + SignUp.SEPARATOR + w[1] + SignUp.SEPARATOR + w[2]);
             }
@@ -214,7 +210,7 @@ namespace qnote
         void notifyAll()
         {
             writeToFile();
-            notesFilling(typePath);
+            notes = Backend.notesFilling(typePath, username);
             gridFilling(notes);
         }
 

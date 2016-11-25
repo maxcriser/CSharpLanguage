@@ -10,6 +10,7 @@ namespace qnote
     class Backend
     {
         public static List<User> profiles;
+        public static List<Note> notes;
 
         public Backend()
         {
@@ -58,6 +59,32 @@ namespace qnote
             };
             stream.Close();
             return profiles;
+        }
+
+        public static List<Note> notesFilling(String path, String username)
+        {
+            notes = new List<Note>();
+            String curPath = @"D:\qnote\users\" + @username + path;
+            StreamReader stream = new StreamReader(curPath, Encoding.GetEncoding(1251));
+            while (!stream.EndOfStream)
+            {
+                String line = stream.ReadLine();
+                if (line != String.Empty)
+                {
+                    String[] sep = line.Split(SignUp.SEPARATOR);
+                    List<String> w = new List<String>();
+                    Boolean favourite = false;
+                    Boolean done = false;
+                    if (sep[1].Equals("fav"))
+                        favourite = true;
+                    if (sep[2].Equals("done"))
+                        done = true;
+                    Note newNote = new Note(sep[0], favourite, done);
+                    notes.Add(newNote);
+                }
+            }
+            stream.Close();
+            return notes;
         }
     }
 }

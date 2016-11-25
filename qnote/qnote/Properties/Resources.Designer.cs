@@ -73,6 +73,16 @@ namespace qnote.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add__3_ {
+            get {
+                object obj = ResourceManager.GetObject("add (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap color_palette {
             get {
                 object obj = ResourceManager.GetObject("color-palette", resourceCulture);

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend.cs" />
+    <Compile Include="Note.cs" />
     <Compile Include="Notes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sad %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add %283%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
