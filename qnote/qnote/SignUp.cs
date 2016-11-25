@@ -13,12 +13,24 @@ namespace qnote
 {
     public partial class SignUp : Form
     {
+        public static char SEPARATOR = '|';
+        public static string folderPATH = @"D:\qnote\";
+        public static string PATH = @"D:\qnote\profiles.txt";
+        public static string statusPATH = @"D:\qnote\status.txt";
+        public static Dictionary<String, String> profiles;
+        public static List<String> statusProfile;
+
         public static string ALL = @"\all.txt";
         public static string WORKLOADS = @"\workloads.txt";
         public static string EVERYDAY_TASKS = @"\everyday_tasks.txt";
         public static string BOOKS_TO_READ = @"\books_to_read.txt";
         public static string MOVIES_FOR_VIEWING = @"\movies_for_viewing.txt";
         public static string SITE_VISITS = @"\site_visits.txt";
+        public static Bitmap fav = new Bitmap(@"D:\qnote\img\fav.png");
+        public static Bitmap unfav = new Bitmap(@"D:\qnote\img\unfav.png");
+        public static Bitmap fav_line = new Bitmap(@"D:\qnote\img\fav_line.png");
+        public static Bitmap unfav_line = new Bitmap(@"D:\qnote\img\unfav_line.png");
+        public static Bitmap delete = new Bitmap(@"D:\qnote\img\delete.png");
 
         String[] notesList = {
             ALL,
@@ -29,14 +41,35 @@ namespace qnote
             SITE_VISITS
         };
 
-        String PATH = @"D:\qnote\profiles.txt";
-        public static Dictionary<String, String> profiles;
-
         public SignUp()
         {
             InitializeComponent();
+            statusProfile = new List<String>();
+            checkStatus();
             profiles = new Dictionary<String, String>();
             readProfiles();
+        }
+
+        void checkStatus()
+        {
+            StreamReader stream = new StreamReader(statusPATH, Encoding.GetEncoding(1251));
+            while (!stream.EndOfStream)
+            {
+                String line = stream.ReadLine();
+                if (line != String.Empty)
+                {
+                    statusProfile.Add(line);
+                }
+            }
+            stream.Close();
+
+            if (statusProfile.Count!=0)
+            {
+                this.Hide();
+                MainActivity main = new MainActivity(statusProfile[0], statusProfile[1]);
+                main.ShowDialog();
+                this.Close();
+            }
         }
 
         void readProfiles()
@@ -44,7 +77,7 @@ namespace qnote
             StreamReader stream = new StreamReader(PATH, Encoding.GetEncoding(1251));
             while (!stream.EndOfStream)
             {
-                String line = stream.ReadLine().ToLower();
+                String line = stream.ReadLine();
                 String[] array = line.Split();
                 profiles.Add(key: array[0], value: array[1]);
             }
@@ -59,6 +92,14 @@ namespace qnote
             this.Close();
         }
 
+        void writeToStatus(String username, String password)
+        {
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(statusPATH, false);
+            writer.WriteLine(username);
+            writer.WriteLine(password);
+            writer.Close();
+        }
+
         private void signup_Click(object sender, EventArgs e)
         {
             if (checkBox1.Checked && textBox2.Text != String.Empty && textBox3.Text != String.Empty && textBox4.Text != String.Empty)
@@ -67,10 +108,11 @@ namespace qnote
                 {
                     if (!profiles.ContainsKey(textBox2.Text))
                     {
+                        writeToStatus(textBox2.Text, textBox3.Text);
                         createFolder(textBox2.Text);
                         writeProfileToFile(textBox2.Text, textBox3.Text);
                         this.Hide();
-                        MainActivity main = new MainActivity(textBox2.Text);
+                        MainActivity main = new MainActivity(textBox2.Text, textBox3.Text);
                         main.ShowDialog();
                         this.Close();
                     }

@@ -31,3 +31,4 @@
 # Debug files
 *.dSYM/
 *.su
+qnote/qnote/obj/Debug/qnote.Notes.resources

@@ -39,13 +39,23 @@ namespace qnote
                 {
                     if (w.Key.Equals(textBox2.Text) && w.Value.Equals(textBox3.Text))
                     {
+                        writeToStatus(textBox2.Text, textBox3.Text);
                         this.Hide();
-                        MainActivity main = new MainActivity(textBox2.Text);
+                        MainActivity main = new MainActivity(textBox2.Text, textBox3.Text);
                         main.ShowDialog();
                         this.Close();
                     }
                 }
             }
+        }
+
+        void writeToStatus(String username, String password)
+        {
+            //TODO maybe ex
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(SignUp.statusPATH, false);
+            writer.WriteLine(username);
+            writer.WriteLine(password);
+            writer.Close();
         }
     }
 }
