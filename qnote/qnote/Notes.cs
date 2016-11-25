@@ -18,10 +18,14 @@ namespace qnote
         private String password;
         private String typePath;
         private List<Note> notes;
+        private SortFavourite sortFavourite;
+        private SortDone sortDone;
 
         public Notes(String typePath, String typeName, String username, String password)
         {
             InitializeComponent();
+            sortFavourite = new SortFavourite();
+            sortDone = new SortDone();
 
             grid.CellMouseEnter += Grid_CellMouseEnter;
             grid.CellMouseLeave += Grid_CellMouseLeave;
@@ -57,6 +61,8 @@ namespace qnote
             this.password = password;
 
             notes = Backend.notesFilling(typePath, username);
+            notes.Sort(sortFavourite);
+            notes.Sort(sortDone);
             gridFilling(notes);
         }
 
@@ -67,7 +73,7 @@ namespace qnote
 
         private void Grid_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DeepSkyBlue;
+            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.MediumPurple;
         }
 
         private void Button_MouseLeave(object sender, EventArgs e)
@@ -181,7 +187,7 @@ namespace qnote
             {
                 notes.RemoveAt(e.RowIndex);
             }
-            notifyAll();
+            notifyAll(notes);
         }
 
 
@@ -203,11 +209,11 @@ namespace qnote
             this.Close();
         }
 
-        void writeToFile()
+        void writeToFile(List<Note> list)
         {
             String curPath = @"D:\qnote\users\" + @username + typePath;
             System.IO.StreamWriter writer = new System.IO.StreamWriter(curPath, false, Encoding.UTF8);
-            foreach (Note w in notes)
+            foreach (Note w in list)
             {
                 String textFavourite = "unfav";
                 String textDone = "not";
@@ -224,11 +230,12 @@ namespace qnote
             writer.Close();
         }
 
-        void notifyAll()
+        void notifyAll(List<Note> list)
         {
-            writeToFile();
-            notes = Backend.notesFilling(typePath, username);
-            gridFilling(notes);
+            writeToFile(list);
+            list.Sort(sortFavourite);
+            list.Sort(sortDone);
+            gridFilling(list);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -238,14 +245,14 @@ namespace qnote
             {
                 Note newNote = new Note(newText, false, false);
                 notes.Add(newNote);
-                notifyAll();
+                notifyAll(notes);
                 textBox1.Clear();
             }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            notifyAll();
+            notifyAll(Backend.notesFilling(typePath, username));
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -259,7 +266,7 @@ namespace qnote
         {
             textBox2.Hide();
             pictureBox3.Show();
-            notifyAll();
+            notifyAll(Backend.notesFilling(typePath, username));
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -275,7 +282,7 @@ namespace qnote
         private void label2_Click(object sender, EventArgs e)
         {
             notes.Clear();
-            notifyAll();
+            notifyAll(Backend.notesFilling(typePath, username));
         }
     }
 }

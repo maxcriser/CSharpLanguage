@@ -96,7 +96,7 @@
             this.grid.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.grid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.grid.GridColor = System.Drawing.Color.White;
-            this.grid.Location = new System.Drawing.Point(181, 100);
+            this.grid.Location = new System.Drawing.Point(181, 106);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
             this.grid.RowHeadersVisible = false;
