@@ -22,6 +22,32 @@ namespace qnote
         public Notes(String typePath, String typeName, String username, String password)
         {
             InitializeComponent();
+
+            grid.CellMouseEnter += Grid_CellMouseEnter;
+            grid.CellMouseLeave += Grid_CellMouseLeave;
+
+            pictureBox1.MouseEnter += Button_MouseEnter;
+            label2.MouseEnter += Button_MouseEnter;
+            label3.MouseEnter += Button_MouseEnter;
+            label4.MouseEnter += Button_MouseEnter;
+            label5.MouseEnter += Button_MouseEnter;
+            label6.MouseEnter += Button_MouseEnter;
+            label7.MouseEnter += Button_MouseEnter;
+            label8.MouseEnter += Button_MouseEnter;
+            label9.MouseEnter += Button_MouseEnter;
+            label10.MouseEnter += Button_MouseEnter;
+
+            pictureBox1.MouseLeave += Button_MouseLeave; ;
+            label2.MouseLeave += Button_MouseLeave;
+            label3.MouseLeave += Button_MouseLeave;
+            label4.MouseLeave += Button_MouseLeave;
+            label5.MouseLeave += Button_MouseLeave;
+            label6.MouseLeave += Button_MouseLeave;
+            label7.MouseLeave += Button_MouseLeave;
+            label8.MouseLeave += Button_MouseLeave;
+            label9.MouseLeave += Button_MouseLeave;
+            label10.MouseLeave += Button_MouseLeave;
+
             textBox2.Hide();
             this.typePath = typePath;
             this.typeName = typeName;
@@ -29,6 +55,30 @@ namespace qnote
             this.password = password;
             notesFilling(typePath);
             gridFilling(notes);
+        }
+
+        private void Grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Azure;
+        }
+
+        private void Grid_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
+        }
+
+        private void Button_MouseLeave(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            if (control != null)
+                control.BackColor = Color.Transparent;
+        }
+
+        private void Button_MouseEnter(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            if (control != null)
+                control.BackColor = Color.Purple;
         }
 
         void gridFilling(List<List<String>> list)
@@ -195,6 +245,17 @@ namespace qnote
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             // setFilter
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            notes.Clear();
+            notifyAll();
         }
     }
 }
