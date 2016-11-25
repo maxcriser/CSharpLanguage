@@ -57,6 +57,11 @@ namespace qnote
             label10.MouseLeave += Button_MouseLeave;
 
             textBox2.Hide();
+            Initialize(typePath, typeName, username, password);
+        }
+
+        void Initialize(String typePath, String typeName, String username, String password)
+        {
             this.typePath = typePath;
             this.typeName = typeName;
             this.username = username;
@@ -259,6 +264,7 @@ namespace qnote
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             notifyAll(Backend.notesFilling(typePath, username), true);
+            MessageBox.Show(DateTime.Now + " время");
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -299,13 +305,38 @@ namespace qnote
 
         private void label7_Click(object sender, EventArgs e)
         {
-
+            Initialize(SignUp.EVERYDAY_TASKS, "EVERYDAY_TASKS", username, password);
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             notes.Clear();
             notifyAll(Backend.notesFilling(typePath, username), true);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Initialize(SignUp.ALL, "ALL", username, password);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Initialize(SignUp.WORKLOADS, "WORK", username, password);
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Initialize(SignUp.BOOKS_TO_READ, "BOOKS", username, password);
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            Initialize(SignUp.MOVIES_FOR_VIEWING, "MOVIES", username, password);
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            Initialize(SignUp.SITE_VISITS, "SITE", username, password);
         }
     }
 }
