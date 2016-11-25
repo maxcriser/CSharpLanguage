@@ -62,12 +62,12 @@ namespace qnote
 
         private void Grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Azure;
+            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
         }
 
         private void Grid_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
+            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DeepSkyBlue;
         }
 
         private void Button_MouseLeave(object sender, EventArgs e)
@@ -233,7 +233,7 @@ namespace qnote
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            String newText = String.Empty;
+            String newText = textBox1.Text;
             if (newText != String.Empty)
             {
                 Note newNote = new Note(newText, false, false);
