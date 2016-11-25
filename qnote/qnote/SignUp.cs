@@ -46,6 +46,31 @@ namespace qnote
             InitializeComponent();
             profiles = Backend.ReadProfiles(PATH);
             checkStatus();
+            pictureBox2.MouseEnter += PictureBox2_MouseEnter;
+            pictureBox1.MouseEnter += PictureBox1_MouseEnter;
+
+            pictureBox2.MouseLeave += PictureBox2_MouseLeave;
+            pictureBox1.MouseLeave += PictureBox1_MouseLeave;
+        }
+
+        private void PictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_ok_leave.png");
+        }
+
+        private void PictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Image.FromFile(@"D:\qnote\img\btn_signin_leave.png");
+        }
+
+        private void PictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_ok_enter.png");
+        }
+
+        private void PictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Image.FromFile(@"D:\qnote\img\btn_signin_enter.png");
         }
 
         void checkStatus()
@@ -63,10 +88,7 @@ namespace qnote
 
         private void signin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            SignIn signIn = new SignIn();
-            signIn.ShowDialog();
-            this.Close();
+            
         }
 
         private Boolean checkForUsers(String username)
@@ -82,6 +104,11 @@ namespace qnote
         }
 
         private void signup_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             String username = textBox2.Text;
             String password = textBox3.Text;
@@ -103,6 +130,14 @@ namespace qnote
                     }
                 }
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignIn signIn = new SignIn();
+            signIn.ShowDialog();
+            this.Close();
         }
     }
 }

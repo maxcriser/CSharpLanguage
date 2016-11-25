@@ -139,6 +139,27 @@
   <ItemGroup>
     <None Include="Resources\add %283%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signup_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signup_background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\act_btn_no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_ok_leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_signin_leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_signup_leave.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -16,6 +16,31 @@ namespace qnote
         public SignIn()
         {
             InitializeComponent();
+            pictureBox1.MouseEnter += PictureBox1_MouseEnter;
+            pictureBox1.MouseLeave += PictureBox1_MouseLeave;
+
+            pictureBox2.MouseEnter += PictureBox2_MouseEnter;
+            pictureBox2.MouseLeave += PictureBox2_MouseLeave;
+        }
+
+        private void PictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Image.FromFile(@"D:\qnote\img\btn_signup_leave.png");
+        }
+
+        private void PictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Image.FromFile(@"D:\qnote\img\btn_signup_enter.png");
+        }
+
+        private void PictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_ok_leave.png");
+        }
+
+        private void PictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_ok_enter.png");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -25,13 +50,15 @@ namespace qnote
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            SignUp signUp = new SignUp();
-            signUp.ShowDialog();
-            this.Close();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             String username = textBox2.Text;
             String password = textBox3.Text;
@@ -49,6 +76,24 @@ namespace qnote
                     }
                 }
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUp signUp = new SignUp();
+            signUp.ShowDialog();
+            this.Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
