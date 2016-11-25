@@ -18,12 +18,14 @@ namespace qnote
         private String password;
         private String typePath;
         private List<Note> notes;
+        private List<Note> searchNotes;
         private SortFavourite sortFavourite;
         private SortDone sortDone;
 
         public Notes(String typePath, String typeName, String username, String password)
         {
             InitializeComponent();
+            searchNotes = new List<Note>();
             sortFavourite = new SortFavourite();
             sortDone = new SortDone();
 
@@ -161,6 +163,7 @@ namespace qnote
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            textBox2.Clear();
             if (e.ColumnIndex.Equals(1))
             {
                 if (notes[e.RowIndex].done)
@@ -187,7 +190,7 @@ namespace qnote
             {
                 notes.RemoveAt(e.RowIndex);
             }
-            notifyAll(notes);
+            notifyAll(notes, true);
         }
 
 
@@ -230,9 +233,12 @@ namespace qnote
             writer.Close();
         }
 
-        void notifyAll(List<Note> list)
+        void notifyAll(List<Note> list, Boolean writeFlag)
         {
-            writeToFile(list);
+            if (writeFlag)
+            {
+                writeToFile(list);
+            }
             list.Sort(sortFavourite);
             list.Sort(sortDone);
             gridFilling(list);
@@ -244,15 +250,15 @@ namespace qnote
             if (newText != String.Empty)
             {
                 Note newNote = new Note(newText, false, false);
-                notes.Add(newNote);
-                notifyAll(notes);
+                notes.Insert(0, newNote);
+                notifyAll(notes, true);
                 textBox1.Clear();
             }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            notifyAll(Backend.notesFilling(typePath, username));
+            notifyAll(Backend.notesFilling(typePath, username), true);
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -266,12 +272,29 @@ namespace qnote
         {
             textBox2.Hide();
             pictureBox3.Show();
-            notifyAll(Backend.notesFilling(typePath, username));
+            notifyAll(Backend.notesFilling(typePath, username), true);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            // setFilter
+            //searchNotes.Clear();
+            // filter
+            String textChanged = textBox2.Text;
+            if (textChanged != String.Empty)
+            {
+                for (int i = 0; i < grid.RowCount; i++)
+                {
+                    String title = grid[1, i].Value.ToString();
+                    if (!title.Contains(textBox2.Text))
+                    {
+                        grid.Rows[i].Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                notifyAll(Backend.notesFilling(typePath, username), true);
+            }
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -282,7 +305,7 @@ namespace qnote
         private void label2_Click(object sender, EventArgs e)
         {
             notes.Clear();
-            notifyAll(Backend.notesFilling(typePath, username));
+            notifyAll(Backend.notesFilling(typePath, username), true);
         }
     }
 }
