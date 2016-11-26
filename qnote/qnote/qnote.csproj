@@ -193,6 +193,48 @@
   <ItemGroup>
     <None Include="Resources\btn_log_out_leave.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send_leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signup_background2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shadow_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searching-magnifying-glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

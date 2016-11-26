@@ -21,6 +21,12 @@ namespace qnote
         private List<Note> searchNotes;
         private SortFavourite sortFavourite;
         private SortDone sortDone;
+        private Color colorFrameBlue = Color.FromArgb(255, 60, 140, 205);
+        private Color colorBackPurple = Color.FromArgb(255, 87, 29, 70);
+
+        private Image sendEnter = Image.FromFile(@"D:\qnote\img\send_enter.png");
+        private Image sendLeave = Image.FromFile(@"D:\qnote\img\send_leave.png");
+
 
         public Notes(String typePath, String typeName, String username, String password)
         {
@@ -86,13 +92,13 @@ namespace qnote
         private void Button_MouseLeave(object sender, EventArgs e)
         {
             Control control = sender as Control;
-            if (control != null)
+            if (control != null && !control.Equals(pictureBox2))
                 control.BackColor = Color.Transparent;
             if (control.Equals(pictureBox2))
             {
                 if (control != null)
                 {
-                    control.BackColor = Color.White;
+                    pictureBox2.Image = sendLeave;
                 }
             }
         }
@@ -100,8 +106,18 @@ namespace qnote
         private void Button_MouseEnter(object sender, EventArgs e)
         {
             Control control = sender as Control;
-            if (control != null)
-                control.BackColor = Color.Purple;
+
+            if (control != null && !control.Equals(pictureBox2))
+            {
+                control.BackColor = colorBackPurple;
+            }
+            if (control.Equals(pictureBox2))
+            {
+                if (control != null)
+                {
+                    pictureBox2.Image = sendEnter;
+                }
+            }
         }
 
         void gridFilling(List<Note> list)
@@ -109,6 +125,12 @@ namespace qnote
             grid.Rows.Clear();
             if (notes.Count != 0)
             {
+                label11.Show();
+                pictureBox3.Show();
+                pictureBox4.Show();
+                pictureBox5.Show();
+                pictureBox6.Hide();
+                label1.Hide();
                 grid.Show();
                 Bitmap icFav;
                 Bitmap icFavLine;
@@ -138,6 +160,12 @@ namespace qnote
             }
             else
             {
+                label11.Hide();
+                pictureBox3.Hide();
+                pictureBox4.Hide();
+                pictureBox5.Hide();
+                pictureBox6.Show();
+                label1.Show();
                 grid.Hide();
             }
         }
@@ -251,6 +279,7 @@ namespace qnote
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+
             String newText = textBox1.Text;
             if (newText != String.Empty)
             {
@@ -283,14 +312,15 @@ namespace qnote
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            //searchNotes.Clear();
-            // filter
+            //TODO перевод англоязычной клавиатуры (тупые пользователи)
             String textChanged = textBox2.Text;
+            textChanged = textChanged.ToLower();
             if (textChanged != String.Empty)
             {
                 for (int i = 0; i < grid.RowCount; i++)
                 {
                     String title = grid[1, i].Value.ToString();
+                    title = title.ToLower();
                     if (!title.Contains(textBox2.Text))
                     {
                         grid.Rows[i].Visible = false;
