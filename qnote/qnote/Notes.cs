@@ -24,6 +24,7 @@ namespace qnote
         private Color colorFrameBlue = Color.FromArgb(255, 60, 140, 205);
         private Color colorBackPurple = Color.FromArgb(240, 87, 29, 70);
         private Color colorBackPurpleShadow = Color.FromArgb(150, 87, 29, 70);
+        private Color colorBackPurpleCellEnter = Color.FromArgb(255, 195, 154, 188);
 
         private Image sendEnter = Image.FromFile(@"D:\qnote\img\send_enter.png");
         private Image sendLeave = Image.FromFile(@"D:\qnote\img\send_leave.png");
@@ -102,7 +103,7 @@ namespace qnote
 
         private void Grid_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.MediumPurple;
+            grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = colorBackPurpleCellEnter;
         }
 
         private void Button_MouseLeave(object sender, EventArgs e)
