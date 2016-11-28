@@ -71,7 +71,7 @@ namespace qnote
                 String line = stream.ReadLine();
                 if (line != String.Empty)
                 {
-                    String[] sep = line.Split(SignUp.SEPARATOR);
+                    String[] sep = line.Split(Constants.SEPARATOR);
                     List<String> w = new List<String>();
                     Boolean favourite = false;
                     Boolean done = false;

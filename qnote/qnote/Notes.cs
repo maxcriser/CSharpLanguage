@@ -22,8 +22,8 @@ namespace qnote
         private SortFavourite sortFavourite;
         private SortDone sortDone;
         private Color colorFrameBlue = Color.FromArgb(255, 60, 140, 205);
-        private Color colorBackPurple = Color.FromArgb(180, 87, 29, 70);
-        private Color colorBackPurpleShadow = Color.FromArgb(100, 87, 29, 70);
+        private Color colorBackPurple = Color.FromArgb(240, 87, 29, 70);
+        private Color colorBackPurpleShadow = Color.FromArgb(150, 87, 29, 70);
 
         private Image sendEnter = Image.FromFile(@"D:\qnote\img\send_enter.png");
         private Image sendLeave = Image.FromFile(@"D:\qnote\img\send_leave.png");
@@ -32,9 +32,12 @@ namespace qnote
         public Notes(String typePath, String typeName, String username, String password)
         {
             InitializeComponent();
+            
             searchNotes = new List<Note>();
             sortFavourite = new SortFavourite();
             sortDone = new SortDone();
+
+            clearBackButtons();
 
             grid.CellMouseEnter += Grid_CellMouseEnter;
             grid.CellMouseLeave += Grid_CellMouseLeave;
@@ -65,6 +68,19 @@ namespace qnote
             Initialize(typePath, typeName, username, password);
         }
 
+        void clearBackButtons()
+        {
+            pictureBox1.BackColor = colorBackPurpleShadow;
+            label2.BackColor = colorBackPurpleShadow;
+            label3.BackColor = colorBackPurpleShadow;
+            label5.BackColor = colorBackPurpleShadow;
+            label6.BackColor = colorBackPurpleShadow;
+            label7.BackColor = colorBackPurpleShadow;
+            label8.BackColor = colorBackPurpleShadow;
+            label9.BackColor = colorBackPurpleShadow;
+            label10.BackColor = colorBackPurpleShadow;
+        }
+
         void Initialize(String typePath, String typeName, String username, String password)
         {
             this.typePath = typePath;
@@ -76,6 +92,7 @@ namespace qnote
             notes.Sort(sortFavourite);
             notes.Sort(sortDone);
             gridFilling(notes);
+            setCountNotes(typeName);
         }
 
         private void Grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
@@ -92,7 +109,7 @@ namespace qnote
         {
             Control control = sender as Control;
             if (control != null && !control.Equals(pictureBox2))
-                control.BackColor = Color.Transparent;
+                control.BackColor = colorBackPurpleShadow;
             if (control.Equals(pictureBox2))
             {
                 if (control != null)
@@ -137,15 +154,15 @@ namespace qnote
                 {
                     if (s.favourite)
                     {
-                        icFav = SignUp.fav;
-                        icFavLine = SignUp.fav_line;
+                        icFav = Constants.fav;
+                        icFavLine = Constants.fav_line;
                     }
                     else
                     {
-                        icFav = SignUp.unfav;
-                        icFavLine = SignUp.unfav_line;
+                        icFav = Constants.unfav;
+                        icFavLine = Constants.unfav_line;
                     }
-                    grid.Rows.Add(icFavLine, s.text, SignUp.delete, icFav);
+                    grid.Rows.Add(icFavLine, s.text, Constants.delete, icFav);
                     if (s.done)
                     {
                         grid[1, grid.RowCount - 1].Style.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Strikeout);
@@ -225,6 +242,24 @@ namespace qnote
             notifyAll(notes, true);
         }
 
+        void setCountNotes(String setTypeName)
+        {
+            String piece = String.Empty;
+            if (notes.Count == 1)
+                piece = "piece";
+            else
+                piece = "pieces";
+            if (notes.Count > 0)
+            {
+                label13.Show();
+                label13.Text = setTypeName + ": " + notes.Count + " " + piece + " available";
+            }
+            else
+            {
+                label13.Hide();
+            }
+        }
+
 
         private void Notes_Load(object sender, EventArgs e)
         {
@@ -260,7 +295,7 @@ namespace qnote
                 {
                     textDone = "done";
                 }
-                writer.WriteLine(w.text + SignUp.SEPARATOR + textFavourite + SignUp.SEPARATOR + textDone);
+                writer.WriteLine(w.text + Constants.SEPARATOR + textFavourite + Constants.SEPARATOR + textDone);
             }
             writer.Close();
         }
@@ -274,6 +309,7 @@ namespace qnote
             list.Sort(sortFavourite);
             list.Sort(sortDone);
             gridFilling(list);
+            setCountNotes(typeName);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -332,7 +368,7 @@ namespace qnote
 
         private void label7_Click(object sender, EventArgs e)
         {
-            Initialize(SignUp.EVERYDAY_TASKS, "EVERYDAY_TASKS", username, password);
+            Initialize(Constants.EVERYDAY_TASKS, Constants.everydayTasks, username, password);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -343,27 +379,27 @@ namespace qnote
 
         private void label5_Click(object sender, EventArgs e)
         {
-            Initialize(SignUp.ALL, "ALL", username, password);
+            Initialize(Constants.ALL, Constants.anyNotes, username, password);
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Initialize(SignUp.WORKLOADS, "WORK", username, password);
+            Initialize(Constants.WORKLOADS, Constants.workloads, username, password);
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
-            Initialize(SignUp.BOOKS_TO_READ, "BOOKS", username, password);
+            Initialize(Constants.BOOKS_TO_READ, Constants.booksToRead, username, password);
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
-            Initialize(SignUp.MOVIES_FOR_VIEWING, "MOVIES", username, password);
+            Initialize(Constants.MOVIES_FOR_VIEWING, Constants.moviesForViewing, username, password);
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
-            Initialize(SignUp.SITE_VISITS, "SITE", username, password);
+            Initialize(Constants.SITE_VISITS, Constants.everydayTasks, username, password);
         }
 
         private void label3_Click(object sender, EventArgs e)

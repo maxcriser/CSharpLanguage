@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Notes.cs">
       <SubType>Form</SubType>

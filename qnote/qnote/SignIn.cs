@@ -16,6 +16,8 @@ namespace qnote
         public SignIn()
         {
             InitializeComponent();
+            label23.ForeColor = Color.Maroon;
+
             pictureBox1.MouseEnter += PictureBox1_MouseEnter;
             pictureBox1.MouseLeave += PictureBox1_MouseLeave;
 
@@ -64,17 +66,25 @@ namespace qnote
             String password = textBox3.Text;
             if (username != String.Empty && password != String.Empty)
             {
-                foreach (var w in Backend.ReadProfiles(SignUp.PATH))
+                foreach (var w in Backend.ReadProfiles(Constants.PATH))
                 {
                     if (w.username.Equals(username) && w.password.Equals(password))
                     {
-                        Backend.writeToStatus(username, password, SignUp.statusPATH);
+                        Backend.writeToStatus(username, password, Constants.statusPATH);
                         this.Hide();
                         MainActivity main = new MainActivity(username, password);
                         main.ShowDialog();
                         this.Close();
                     }
+                    else
+                    {
+                        label23.Text = Constants.errorSignIn;
+                    }
                 }
+            }
+            else
+            {
+                label23.Text = Constants.errorEmptyField;
             }
         }
 
@@ -94,6 +104,16 @@ namespace qnote
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            label23.Text = String.Empty;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            label23.Text = String.Empty;
         }
     }
 }

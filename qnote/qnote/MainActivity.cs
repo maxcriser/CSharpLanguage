@@ -179,37 +179,37 @@ namespace qnote
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            startNotes("", SignUp.ALL);
+            startNotes(Constants.anyNotes, Constants.ALL);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            startNotes("", SignUp.WORKLOADS);
+            startNotes(Constants.workloads, Constants.WORKLOADS);
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            startNotes("", SignUp.EVERYDAY_TASKS);
+            startNotes(Constants.everydayTasks, Constants.EVERYDAY_TASKS);
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            startNotes("", SignUp.BOOKS_TO_READ);
+            startNotes(Constants.booksToRead, Constants.BOOKS_TO_READ);
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            startNotes("", SignUp.MOVIES_FOR_VIEWING);
+            startNotes(Constants.moviesForViewing, Constants.MOVIES_FOR_VIEWING);
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            startNotes("", SignUp.SITE_VISITS);
+            startNotes(Constants.travels, Constants.SITE_VISITS);
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(SignUp.statusPATH, false);
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(Constants.statusPATH, false);
             writer.Close();
             this.Hide();
             SignIn inS = new SignIn();

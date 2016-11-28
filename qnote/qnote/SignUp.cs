@@ -14,49 +14,40 @@ namespace qnote
     public partial class SignUp : Form
     {
         private string wantToSignText = "Want to sign up fill out this form!";
-        private string errorUsername = "error Username";
-        private string errorPassword = "error Password";
-        private string errorAccept = "error Accept";
-        private string errorEmptyField = "One of this fields if empty";
-        public static char SEPARATOR = '|';
-        public static string folderPATH = @"D:\qnote\";
-        public static string PATH = @"D:\qnote\profiles.txt";
-        public static string statusPATH = @"D:\qnote\status.txt";
+        private string errorUsername = "This username is already registered.";
+        private string errorPassword = "Passwords do not match, please\ntry again.";
+        private string errorAccept = "You must accept the conditions of\nregistration.";
         static List<User> profiles = new List<User>();
         List<User> statusProfile = new List<User>();
 
-        public static string ALL = @"\all.txt";
-        public static string WORKLOADS = @"\workloads.txt";
-        public static string EVERYDAY_TASKS = @"\everyday_tasks.txt";
-        public static string BOOKS_TO_READ = @"\books_to_read.txt";
-        public static string MOVIES_FOR_VIEWING = @"\movies_for_viewing.txt";
-        public static string SITE_VISITS = @"\site_visits.txt";
-        public static Bitmap fav = new Bitmap(@"D:\qnote\img\fav.png");
-        public static Bitmap unfav = new Bitmap(@"D:\qnote\img\unfav.png");
-        public static Bitmap fav_line = new Bitmap(@"D:\qnote\img\fav_line.png");
-        public static Bitmap unfav_line = new Bitmap(@"D:\qnote\img\unfav_line.png");
-        public static Bitmap delete = new Bitmap(@"D:\qnote\img\delete.png");
-
         String[] notesList = {
-            ALL,
-            WORKLOADS,
-            EVERYDAY_TASKS,
-            BOOKS_TO_READ,
-            MOVIES_FOR_VIEWING,
-            SITE_VISITS
+            Constants.ALL,
+            Constants.WORKLOADS,
+            Constants.EVERYDAY_TASKS,
+            Constants.BOOKS_TO_READ,
+            Constants.MOVIES_FOR_VIEWING,
+            Constants.SITE_VISITS
         };
 
         public SignUp()
         {
             InitializeComponent();
             this.textBox2.HidePromptOnLeave = true;
-            profiles = Backend.ReadProfiles(PATH);
+            profiles = Backend.ReadProfiles(Constants.PATH);
             checkStatus();
             pictureBox2.MouseEnter += PictureBox2_MouseEnter;
             pictureBox1.MouseEnter += PictureBox1_MouseEnter;
 
             pictureBox2.MouseLeave += PictureBox2_MouseLeave;
             pictureBox1.MouseLeave += PictureBox1_MouseLeave;
+
+            textBox2.TextChanged += TextBox2_TextChanged;
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            label2.Text = wantToSignText;
+            label2.ForeColor = Color.White;
         }
 
         private void PictureBox1_MouseLeave(object sender, EventArgs e)
@@ -81,7 +72,7 @@ namespace qnote
 
         void checkStatus()
         {
-            statusProfile = Backend.ReadProfiles(statusPATH);
+            statusProfile = Backend.ReadProfiles(Constants.statusPATH);
             
             if (statusProfile.Count!=0)
             {
@@ -128,9 +119,9 @@ namespace qnote
                     {
                         if (checkForUsers(username))
                         {
-                            Backend.writeToStatus(username, password, statusPATH);
+                            Backend.writeToStatus(username, password, Constants.statusPATH);
                             Backend.createFolder(username, notesList);
-                            Backend.writeProfileToFile(username, password, PATH);
+                            Backend.writeProfileToFile(username, password, Constants.PATH);
                             this.Hide();
                             MainActivity main = new MainActivity(username, password);
                             main.ShowDialog();
@@ -156,7 +147,7 @@ namespace qnote
             }
             else
             {
-                label2.Text = errorEmptyField;
+                label2.Text = Constants.errorEmptyField;
                 label2.ForeColor = Color.Maroon;
             }
         }
@@ -171,8 +162,7 @@ namespace qnote
 
         private void textBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            label2.Text = wantToSignText;
-            label2.ForeColor = Color.White;
+
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

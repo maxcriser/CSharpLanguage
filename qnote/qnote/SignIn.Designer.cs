@@ -36,6 +36,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -44,14 +46,17 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox2.Location = new System.Drawing.Point(17, 202);
+            this.textBox2.Location = new System.Drawing.Point(17, 204);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(240, 26);
             this.textBox2.TabIndex = 30;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::qnote.Properties.Resources.signup_background1;
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -67,12 +72,13 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox3.Location = new System.Drawing.Point(17, 252);
+            this.textBox3.Location = new System.Drawing.Point(17, 255);
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(240, 26);
             this.textBox3.TabIndex = 29;
             this.textBox3.UseSystemPasswordChar = true;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // pictureBox1
             // 
@@ -102,7 +108,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(14, 231);
+            this.label5.Location = new System.Drawing.Point(14, 234);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 18);
             this.label5.TabIndex = 25;
@@ -115,7 +121,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 181);
+            this.label4.Location = new System.Drawing.Point(14, 183);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 18);
             this.label4.TabIndex = 26;
@@ -128,12 +134,34 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 129);
+            this.label1.Location = new System.Drawing.Point(12, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 29);
             this.label1.TabIndex = 20;
             this.label1.Text = "Sign in";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(14, 154);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(0, 20);
+            this.label22.TabIndex = 35;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(15, 144);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(0, 18);
+            this.label23.TabIndex = 36;
             // 
             // SignIn
             // 
@@ -164,5 +192,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }
