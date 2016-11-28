@@ -13,10 +13,6 @@ namespace qnote
 {
     public partial class Notes : Form
     {
-        private String fav = "fav";
-        private String unfav = "unfav";
-        private String done = "done";
-        private String not = "not";
         private String typeName;
         private String username;
         private String password;
@@ -32,6 +28,12 @@ namespace qnote
 
         private Image sendEnter = Image.FromFile(@"D:\qnote\img\send_enter.png");
         private Image sendLeave = Image.FromFile(@"D:\qnote\img\send_leave.png");
+        private Image allSmiley = Image.FromFile(@"D:\qnote\img\sad_all.png");
+        private Image booksSmiley = Image.FromFile(@"D:\qnote\img\sad_books.png");
+        private Image travelsSmiley = Image.FromFile(@"D:\qnote\img\sad_travels.png");
+        private Image moviesSmiley = Image.FromFile(@"D:\qnote\img\sad_movies.png");
+        private Image everydaySmiley = Image.FromFile(@"D:\qnote\img\sad_everyday.png");
+        private Image workloadsSmiley = Image.FromFile(@"D:\qnote\img\sad_workloads.png");
 
 
         public Notes(String typePath, String typeName, String username, String password)
@@ -187,17 +189,39 @@ namespace qnote
                 pictureBox5.Hide();
                 pictureBox6.Show();
                 label1.Show();
-                String emptyTypeName = typeName.ToUpper();
-                String endNotes = String.Empty;
-                if (typeName != Constants.anyNotes)
+
+                String emptyText = String.Empty;
+                if (typeName.Equals(Constants.travels))
                 {
-                    endNotes = " NOTES";
+                    pictureBox6.Image = travelsSmiley;
+                    emptyText = "You don't like to travel? It's so cool :)";
+                }
+                else if (typeName.Equals(Constants.workloads))
+                {
+                    pictureBox6.Image = workloadsSmiley;
+                    emptyText = "You have to work. Movement is life.";
+                }
+                else if (typeName.Equals(Constants.everydayTasks))
+                {
+                    pictureBox6.Image = everydaySmiley;
+                    emptyText = "You must be free, to play with me?";
+                }
+                else if (typeName.Equals(Constants.booksToRead))
+                {
+                    pictureBox6.Image = booksSmiley;
+                    emptyText = "You can't read? If you want, I can read you.";
+                }
+                else if (typeName.Equals(Constants.moviesForViewing))
+                {
+                    pictureBox6.Image = moviesSmiley;
+                    emptyText = "But, what about Marvel and DC Comics?";
                 }
                 else
                 {
-                    endNotes = String.Empty;
+                    pictureBox6.Image = allSmiley;
+                    emptyText = "You don't have any notes? Grieve not Squizzy :(";
                 }
-                label1.Text = "YOU HAVE NO " + emptyTypeName + endNotes;
+                label1.Text = emptyText;
                 grid.Hide();
             }
         }
@@ -295,32 +319,12 @@ namespace qnote
             this.Close();
         }
 
-        void writeToFile(List<Note> list)
-        {
-            String curPath = @"D:\qnote\users\" + @username + typePath;
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(curPath, false, Encoding.UTF8);
-            foreach (Note w in list)
-            {
-                String textFavourite = unfav;
-                String textDone = not;
-                if (w.favourite)
-                {
-                    textFavourite = fav;
-                }
-                if (w.done)
-                {
-                    textDone = done;
-                }
-                writer.WriteLine(w.text + Constants.SEPARATOR + textFavourite + Constants.SEPARATOR + textDone);
-            }
-            writer.Close();
-        }
 
         void notifyAll(List<Note> list, Boolean writeFlag)
         {
             if (writeFlag)
             {
-                writeToFile(list);
+                Backend.writeToFile(list, username, typePath);
             }
             list.Sort(sortFavourite);
             list.Sort(sortDone);
@@ -433,6 +437,14 @@ namespace qnote
                 }
             }
             notifyAll(notes, true);
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (this.FormBorderStyle.Equals(FormBorderStyle.Sizable))
+                this.FormBorderStyle = FormBorderStyle.None;
+            else
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
     }
 }

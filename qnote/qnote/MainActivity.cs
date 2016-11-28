@@ -34,6 +34,7 @@ namespace qnote
         public MainActivity(String userName, String password)
         {
             InitializeComponent();
+            label1.Text = userName + ", it's time to create notes.";
             this.userName = userName;
             this.password = password;
             notesWorkloads = new List<List<String>>();
@@ -208,7 +209,7 @@ namespace qnote
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(Constants.statusPATH, false);
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(Constants.statusPATH, false, Encoding.UTF8);
             writer.Close();
             this.Hide();
             SignIn inS = new SignIn();

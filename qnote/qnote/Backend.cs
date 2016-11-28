@@ -12,9 +12,30 @@ namespace qnote
         public static List<User> profiles;
         public static List<Note> notes;
 
+        public static void writeToFile(List<Note> list, String username, String typePath)
+        {
+            String curPath = @"D:\qnote\users\" + @username + typePath;
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(curPath, false, Encoding.UTF8);
+            foreach (Note w in list)
+            {
+                String textFavourite = Constants.unfavText;
+                String textDone = Constants.notText;
+                if (w.favourite)
+                {
+                    textFavourite = Constants.favText;
+                }
+                if (w.done)
+                {
+                    textDone = Constants.doneText;
+                }
+                writer.WriteLine(w.text + Constants.SEPARATOR + textFavourite + Constants.SEPARATOR + textDone);
+            }
+            writer.Close();
+        }
+
         public static void writeProfileToFile(String username, String password, String PATH)
         {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(PATH, true);
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(PATH, true, Encoding.UTF8);
             writer.WriteLine(username);
             writer.WriteLine(password);
             writer.Close();
@@ -22,7 +43,7 @@ namespace qnote
 
         public static void writeToStatus(String username, String password, String statusPATH)
         {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(statusPATH, false);
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(statusPATH, false, Encoding.UTF8);
             writer.WriteLine(username);
             writer.WriteLine(password);
             writer.Close();
@@ -36,7 +57,7 @@ namespace qnote
             for (int i = 0; i < notesList.Length; i++)
             {
                 String pathFile = pathFolder + notesList[i];
-                System.IO.StreamWriter writer = new System.IO.StreamWriter(pathFile, true);
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(pathFile, true, Encoding.UTF8);
                 writer.Close();
             }
         }
@@ -71,9 +92,9 @@ namespace qnote
                     List<String> w = new List<String>();
                     Boolean favourite = false;
                     Boolean done = false;
-                    if (sep[1].Equals("fav"))
+                    if (sep[1].Equals(Constants.favText))
                         favourite = true;
-                    if (sep[2].Equals("done"))
+                    if (sep[2].Equals(Constants.doneText))
                         done = true;
                     Note newNote = new Note(sep[0], favourite, done);
                     notes.Add(newNote);
