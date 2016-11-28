@@ -182,6 +182,17 @@ namespace qnote
                 pictureBox5.Hide();
                 pictureBox6.Show();
                 label1.Show();
+                String emptyTypeName = typeName.ToUpper();
+                String endNotes = String.Empty;
+                if (typeName != Constants.anyNotes)
+                {
+                    endNotes = " NOTES";
+                }
+                else
+                {
+                    endNotes = String.Empty;
+                }
+                label1.Text = "YOU HAVE NO " + emptyTypeName + endNotes;
                 grid.Hide();
             }
         }
@@ -346,7 +357,7 @@ namespace qnote
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            //TODO перевод англоязычной клавиатуры (тупые пользователи)
+            //TODO перевод англоязычной клавиатуры (тупые пользователи
             String textChanged = textBox2.Text;
             if (textChanged != String.Empty)
             {
@@ -356,6 +367,10 @@ namespace qnote
                     if (title.IndexOf(Convert.ToString(textChanged), StringComparison.CurrentCultureIgnoreCase) < 0)
                     {
                         grid.Rows[i].Visible = false;
+                    }
+                    else
+                    {
+                        grid.Rows[i].Visible = true;
                     }
                 }
             }
@@ -399,7 +414,7 @@ namespace qnote
 
         private void label10_Click(object sender, EventArgs e)
         {
-            Initialize(Constants.SITE_VISITS, Constants.everydayTasks, username, password);
+            Initialize(Constants.SITE_VISITS, Constants.travels, username, password);
         }
 
         private void label3_Click(object sender, EventArgs e)
