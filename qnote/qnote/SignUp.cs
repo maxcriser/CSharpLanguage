@@ -13,6 +13,11 @@ namespace qnote
 {
     public partial class SignUp : Form
     {
+        private string wantToSignText = "Want to sign up fill out this form!";
+        private string errorUsername = "error Username";
+        private string errorPassword = "error Password";
+        private string errorAccept = "error Accept";
+        private string errorEmptyField = "One of this fields if empty";
         public static char SEPARATOR = '|';
         public static string folderPATH = @"D:\qnote\";
         public static string PATH = @"D:\qnote\profiles.txt";
@@ -44,6 +49,7 @@ namespace qnote
         public SignUp()
         {
             InitializeComponent();
+            this.textBox2.HidePromptOnLeave = true;
             profiles = Backend.ReadProfiles(PATH);
             checkStatus();
             pictureBox2.MouseEnter += PictureBox2_MouseEnter;
@@ -114,21 +120,44 @@ namespace qnote
             String password = textBox3.Text;
             String passwordConfirm = textBox4.Text;
 
-            if (checkBox1.Checked && username != String.Empty && password != String.Empty && passwordConfirm != String.Empty)
+            if (username != String.Empty && password != String.Empty && passwordConfirm != String.Empty)
             {
-                if (password == passwordConfirm)
+                if (checkBox1.Checked)
                 {
-                    if (checkForUsers(username))
+                    if (password == passwordConfirm)
                     {
-                        Backend.writeToStatus(username, password, statusPATH);
-                        Backend.createFolder(username, notesList);
-                        Backend.writeProfileToFile(username, password, PATH);
-                        this.Hide();
-                        MainActivity main = new MainActivity(username, password);
-                        main.ShowDialog();
-                        this.Close();
+                        if (checkForUsers(username))
+                        {
+                            Backend.writeToStatus(username, password, statusPATH);
+                            Backend.createFolder(username, notesList);
+                            Backend.writeProfileToFile(username, password, PATH);
+                            this.Hide();
+                            MainActivity main = new MainActivity(username, password);
+                            main.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            label2.Text = errorUsername;
+                            label2.ForeColor = Color.Maroon;
+                        }
+                    }
+                    else
+                    {
+                        label2.Text = errorPassword;
+                        label2.ForeColor = Color.Maroon;
                     }
                 }
+                else
+                {
+                    label2.Text = errorAccept;
+                    label2.ForeColor = Color.Maroon;
+                }
+            }
+            else
+            {
+                label2.Text = errorEmptyField;
+                label2.ForeColor = Color.Maroon;
             }
         }
 
@@ -138,6 +167,30 @@ namespace qnote
             SignIn signIn = new SignIn();
             signIn.ShowDialog();
             this.Close();
+        }
+
+        private void textBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            label2.Text = wantToSignText;
+            label2.ForeColor = Color.White;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            label2.Text = wantToSignText;
+            label2.ForeColor = Color.White;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            label2.Text = wantToSignText;
+            label2.ForeColor = Color.White;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            label2.Text = wantToSignText;
+            label2.ForeColor = Color.White;
         }
     }
 }

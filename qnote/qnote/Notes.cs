@@ -22,7 +22,8 @@ namespace qnote
         private SortFavourite sortFavourite;
         private SortDone sortDone;
         private Color colorFrameBlue = Color.FromArgb(255, 60, 140, 205);
-        private Color colorBackPurple = Color.FromArgb(255, 87, 29, 70);
+        private Color colorBackPurple = Color.FromArgb(180, 87, 29, 70);
+        private Color colorBackPurpleShadow = Color.FromArgb(100, 87, 29, 70);
 
         private Image sendEnter = Image.FromFile(@"D:\qnote\img\send_enter.png");
         private Image sendLeave = Image.FromFile(@"D:\qnote\img\send_leave.png");
@@ -42,7 +43,6 @@ namespace qnote
             pictureBox2.MouseEnter += Button_MouseEnter;
             label2.MouseEnter += Button_MouseEnter;
             label3.MouseEnter += Button_MouseEnter;
-            label4.MouseEnter += Button_MouseEnter;
             label5.MouseEnter += Button_MouseEnter;
             label6.MouseEnter += Button_MouseEnter;
             label7.MouseEnter += Button_MouseEnter;
@@ -54,7 +54,6 @@ namespace qnote
             pictureBox2.MouseLeave += Button_MouseLeave;
             label2.MouseLeave += Button_MouseLeave;
             label3.MouseLeave += Button_MouseLeave;
-            label4.MouseLeave += Button_MouseLeave;
             label5.MouseLeave += Button_MouseLeave;
             label6.MouseLeave += Button_MouseLeave;
             label7.MouseLeave += Button_MouseLeave;
@@ -293,7 +292,6 @@ namespace qnote
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             notifyAll(Backend.notesFilling(typePath, username), true);
-            MessageBox.Show(DateTime.Now + " время");
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -314,14 +312,12 @@ namespace qnote
         {
             //TODO перевод англоязычной клавиатуры (тупые пользователи)
             String textChanged = textBox2.Text;
-            textChanged = textChanged.ToLower();
             if (textChanged != String.Empty)
             {
                 for (int i = 0; i < grid.RowCount; i++)
                 {
                     String title = grid[1, i].Value.ToString();
-                    title = title.ToLower();
-                    if (!title.Contains(textBox2.Text))
+                    if (title.IndexOf(Convert.ToString(textChanged), StringComparison.CurrentCultureIgnoreCase) < 0)
                     {
                         grid.Rows[i].Visible = false;
                     }
@@ -330,6 +326,7 @@ namespace qnote
             else
             {
                 notifyAll(Backend.notesFilling(typePath, username), true);
+                pictureBox3.Hide();
             }
         }
 
@@ -341,7 +338,7 @@ namespace qnote
         private void label2_Click(object sender, EventArgs e)
         {
             notes.Clear();
-            notifyAll(Backend.notesFilling(typePath, username), true);
+            notifyAll(notes, true);
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -367,6 +364,19 @@ namespace qnote
         private void label10_Click(object sender, EventArgs e)
         {
             Initialize(SignUp.SITE_VISITS, "SITE", username, password);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < notes.Count; i++)
+            {
+                if (notes[i].done)
+                {
+                    notes.RemoveAt(i);
+                    i--;
+                }
+            }
+            notifyAll(notes, true);
         }
     }
 }

@@ -30,12 +30,12 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,12 +57,12 @@
             // panel1
             // 
             this.panel1.BackgroundImage = global::qnote.Properties.Resources.signup_background1;
+            this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
@@ -73,6 +73,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(284, 311);
             this.panel1.TabIndex = 26;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox2.Location = new System.Drawing.Point(21, 102);
+            this.textBox2.Mask = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PromptChar = ' ';
+            this.textBox2.Size = new System.Drawing.Size(238, 26);
+            this.textBox2.TabIndex = 28;
+            this.textBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.textBox2_MaskInputRejected);
             // 
             // pictureBox2
             // 
@@ -99,21 +110,23 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox3.Location = new System.Drawing.Point(21, 160);
+            this.textBox3.Location = new System.Drawing.Point(21, 154);
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(238, 26);
             this.textBox3.TabIndex = 24;
             this.textBox3.UseSystemPasswordChar = true;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox4.Location = new System.Drawing.Point(21, 210);
+            this.textBox4.Location = new System.Drawing.Point(21, 209);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(238, 26);
             this.textBox4.TabIndex = 24;
             this.textBox4.UseSystemPasswordChar = true;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // checkBox1
             // 
@@ -127,15 +140,7 @@
             this.checkBox1.TabIndex = 25;
             this.checkBox1.Text = "I accept the terms of use";
             this.checkBox1.UseVisualStyleBackColor = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox2.Location = new System.Drawing.Point(21, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 26);
-            this.textBox2.TabIndex = 24;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label1
             // 
@@ -143,7 +148,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 9);
+            this.label1.Location = new System.Drawing.Point(16, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 29);
             this.label1.TabIndex = 0;
@@ -155,7 +160,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(18, 89);
+            this.label4.Location = new System.Drawing.Point(18, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 18);
             this.label4.TabIndex = 20;
@@ -167,7 +172,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(17, 38);
+            this.label2.Location = new System.Drawing.Point(17, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(234, 20);
             this.label2.TabIndex = 1;
@@ -179,7 +184,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(18, 139);
+            this.label5.Location = new System.Drawing.Point(18, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 18);
             this.label5.TabIndex = 20;
@@ -191,7 +196,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(18, 189);
+            this.label7.Location = new System.Drawing.Point(18, 187);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 18);
             this.label7.TabIndex = 20;
@@ -225,7 +230,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox4;
@@ -234,6 +238,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.MaskedTextBox textBox2;
     }
 }
 

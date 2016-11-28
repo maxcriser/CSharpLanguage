@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grid = new System.Windows.Forms.DataGridView();
             this.favline = new System.Windows.Forms.DataGridViewImageColumn();
             this.Task = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +52,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -82,14 +81,14 @@
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.ColumnHeadersVisible = false;
             this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -113,13 +112,13 @@
             // 
             // favline
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.favline.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.NullValue = null;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.favline.DefaultCellStyle = dataGridViewCellStyle7;
             this.favline.HeaderText = "favline";
             this.favline.MinimumWidth = 6;
             this.favline.Name = "favline";
@@ -131,12 +130,12 @@
             // Task
             // 
             this.Task.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.Task.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.Task.DefaultCellStyle = dataGridViewCellStyle8;
             this.Task.FillWeight = 203.7428F;
             this.Task.HeaderText = "task";
             this.Task.Name = "Task";
@@ -145,13 +144,13 @@
             // 
             // delete
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.delete.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.NullValue = null;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.delete.DefaultCellStyle = dataGridViewCellStyle9;
             this.delete.FillWeight = 58.56081F;
             this.delete.HeaderText = "Delete";
             this.delete.MinimumWidth = 24;
@@ -163,13 +162,13 @@
             // 
             // favourite
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.favourite.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.NullValue = null;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.favourite.DefaultCellStyle = dataGridViewCellStyle10;
             this.favourite.FillWeight = 37.69633F;
             this.favourite.HeaderText = "Favourite";
             this.favourite.MinimumWidth = 24;
@@ -226,7 +225,6 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -273,12 +271,12 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label10.Location = new System.Drawing.Point(0, 273);
+            this.label10.Location = new System.Drawing.Point(0, 269);
             this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
+            this.label10.Padding = new System.Windows.Forms.Padding(20, 4, 0, 0);
             this.label10.Size = new System.Drawing.Size(241, 30);
             this.label10.TabIndex = 3;
-            this.label10.Text = "Site";
+            this.label10.Text = "Travels";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label9
@@ -287,12 +285,12 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(0, 243);
+            this.label9.Location = new System.Drawing.Point(0, 235);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
+            this.label9.Padding = new System.Windows.Forms.Padding(20, 4, 0, 0);
             this.label9.Size = new System.Drawing.Size(241, 30);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Movies";
+            this.label9.Text = "Movies for viewing";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // pictureBox5
@@ -312,12 +310,12 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(0, 213);
+            this.label8.Location = new System.Drawing.Point(0, 202);
             this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
+            this.label8.Padding = new System.Windows.Forms.Padding(20, 4, 0, 0);
             this.label8.Size = new System.Drawing.Size(241, 30);
             this.label8.TabIndex = 3;
-            this.label8.Text = "Books";
+            this.label8.Text = "Books to read";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
@@ -326,12 +324,12 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Location = new System.Drawing.Point(0, 183);
+            this.label7.Location = new System.Drawing.Point(0, 169);
             this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
+            this.label7.Padding = new System.Windows.Forms.Padding(20, 4, 0, 0);
             this.label7.Size = new System.Drawing.Size(241, 30);
             this.label7.TabIndex = 3;
-            this.label7.Text = "Every";
+            this.label7.Text = "Everyday tasks";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
@@ -340,12 +338,12 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(0, 153);
+            this.label6.Location = new System.Drawing.Point(0, 136);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
+            this.label6.Padding = new System.Windows.Forms.Padding(20, 4, 0, 0);
             this.label6.Size = new System.Drawing.Size(241, 30);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Work";
+            this.label6.Text = "Workloads";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
@@ -354,26 +352,13 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(0, 123);
+            this.label5.Location = new System.Drawing.Point(0, 103);
             this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
+            this.label5.Padding = new System.Windows.Forms.Padding(20, 4, 0, 0);
             this.label5.Size = new System.Drawing.Size(241, 30);
             this.label5.TabIndex = 3;
-            this.label5.Text = "ALL";
+            this.label5.Text = "Any notes";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(0, 93);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
-            this.label4.Size = new System.Drawing.Size(241, 30);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "+ Папки";
             // 
             // label3
             // 
@@ -381,12 +366,13 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(0, 63);
+            this.label3.Location = new System.Drawing.Point(0, 70);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
             this.label3.Size = new System.Drawing.Size(241, 30);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Очистить выполненое";
+            this.label3.Text = "Clear completed";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox1
             // 
@@ -413,22 +399,22 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(0, 33);
+            this.label2.Location = new System.Drawing.Point(0, 37);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
             this.label2.Size = new System.Drawing.Size(241, 30);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Удалить все";
+            this.label2.Text = "Delete all";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::qnote.Properties.Resources.menu;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(241, 34);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(8, 5, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(241, 30);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
@@ -508,7 +494,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
