@@ -13,6 +13,10 @@ namespace qnote
 {
     public partial class Notes : Form
     {
+        private String fav = "fav";
+        private String unfav = "unfav";
+        private String done = "done";
+        private String not = "not";
         private String typeName;
         private String username;
         private String password;
@@ -297,15 +301,15 @@ namespace qnote
             System.IO.StreamWriter writer = new System.IO.StreamWriter(curPath, false, Encoding.UTF8);
             foreach (Note w in list)
             {
-                String textFavourite = "unfav";
-                String textDone = "not";
+                String textFavourite = unfav;
+                String textDone = not;
                 if (w.favourite)
                 {
-                    textFavourite = "fav";
+                    textFavourite = fav;
                 }
                 if (w.done)
                 {
-                    textDone = "done";
+                    textDone = done;
                 }
                 writer.WriteLine(w.text + Constants.SEPARATOR + textFavourite + Constants.SEPARATOR + textDone);
             }

@@ -101,14 +101,14 @@
             this.grid.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.grid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.grid.GridColor = System.Drawing.Color.White;
-            this.grid.Location = new System.Drawing.Point(243, 121);
+            this.grid.Location = new System.Drawing.Point(243, 102);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
             this.grid.RowHeadersVisible = false;
             this.grid.RowTemplate.DividerHeight = 1;
-            this.grid.RowTemplate.Height = 56;
+            this.grid.RowTemplate.Height = 40;
             this.grid.RowTemplate.ReadOnly = true;
-            this.grid.Size = new System.Drawing.Size(561, 220);
+            this.grid.Size = new System.Drawing.Size(561, 245);
             this.grid.TabIndex = 35;
             this.grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -176,7 +176,7 @@
             // label11
             // 
             this.label11.BackColor = System.Drawing.SystemColors.Highlight;
-            this.label11.Location = new System.Drawing.Point(241, 120);
+            this.label11.Location = new System.Drawing.Point(241, 101);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(700, 2);
             this.label11.TabIndex = 45;
@@ -389,7 +389,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(439, 59);
+            this.label4.Location = new System.Drawing.Point(439, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 20);
             this.label4.TabIndex = 46;
@@ -400,7 +400,7 @@
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label13.Location = new System.Drawing.Point(404, 95);
+            this.label13.Location = new System.Drawing.Point(404, 76);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(400, 23);
             this.label13.TabIndex = 47;
@@ -450,12 +450,12 @@
             this.delete.DefaultCellStyle = dataGridViewCellStyle4;
             this.delete.FillWeight = 58.56081F;
             this.delete.HeaderText = "Delete";
-            this.delete.MinimumWidth = 24;
+            this.delete.MinimumWidth = 40;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 24;
+            this.delete.Width = 40;
             // 
             // favourite
             // 
@@ -468,12 +468,12 @@
             this.favourite.DefaultCellStyle = dataGridViewCellStyle5;
             this.favourite.FillWeight = 37.69633F;
             this.favourite.HeaderText = "Favourite";
-            this.favourite.MinimumWidth = 24;
+            this.favourite.MinimumWidth = 40;
             this.favourite.Name = "favourite";
             this.favourite.ReadOnly = true;
             this.favourite.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.favourite.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.favourite.Width = 24;
+            this.favourite.Width = 40;
             // 
             // Notes
             // 

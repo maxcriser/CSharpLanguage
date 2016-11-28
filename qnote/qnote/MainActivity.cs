@@ -58,7 +58,6 @@ namespace qnote
 
             pictureBox10.MouseEnter += button_Enter;
             pictureBox10.MouseLeave += button_Leave;
-
         }
 
         private void button_Leave(object sender, EventArgs e)

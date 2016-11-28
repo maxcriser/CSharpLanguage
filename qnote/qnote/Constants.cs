@@ -33,6 +33,5 @@ namespace qnote
         public static string moviesForViewing = "Movies for viewing";
         public static string anyNotes = "Any notes";
         public static string everydayTasks = "Everyday tasks";
-
     }
 }

@@ -39,6 +39,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -55,6 +56,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = global::qnote.Properties.Resources.background21;
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox10);
             this.panel1.Controls.Add(this.pictureBox9);
             this.panel1.Controls.Add(this.pictureBox8);
@@ -65,7 +67,7 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-448, -228);
+            this.panel1.Location = new System.Drawing.Point(-447, -228);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1333, 740);
             this.panel1.TabIndex = 20;
@@ -131,7 +133,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = global::qnote.Properties.Resources.btn_books_leave;
-            this.pictureBox4.Location = new System.Drawing.Point(511, 468);
+            this.pictureBox4.Location = new System.Drawing.Point(510, 468);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(360, 70);
             this.pictureBox4.TabIndex = 23;
@@ -142,7 +144,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = global::qnote.Properties.Resources.btn_every_day_leave;
-            this.pictureBox3.Location = new System.Drawing.Point(511, 402);
+            this.pictureBox3.Location = new System.Drawing.Point(510, 402);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(360, 70);
             this.pictureBox3.TabIndex = 22;
@@ -153,7 +155,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::qnote.Properties.Resources.btn_workloads_leave;
-            this.pictureBox2.Location = new System.Drawing.Point(511, 336);
+            this.pictureBox2.Location = new System.Drawing.Point(510, 336);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(360, 70);
             this.pictureBox2.TabIndex = 21;
@@ -164,12 +166,24 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::qnote.Properties.Resources.btn_any_notes_leave;
-            this.pictureBox1.Location = new System.Drawing.Point(511, 270);
+            this.pictureBox1.Location = new System.Drawing.Point(510, 270);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(360, 70);
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(459, 234);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(460, 39);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Maxcriser, it\'s time to create notes";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainActivity
             // 
@@ -207,5 +221,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label label1;
     }
 }

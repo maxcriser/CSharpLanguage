@@ -12,10 +12,6 @@ namespace qnote
         public static List<User> profiles;
         public static List<Note> notes;
 
-        public Backend()
-        {
-        }
-
         public static void writeProfileToFile(String username, String password, String PATH)
         {
             System.IO.StreamWriter writer = new System.IO.StreamWriter(PATH, true);

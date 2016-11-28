@@ -13,6 +13,12 @@ namespace qnote
 {
     public partial class SignIn : Form
     {
+
+        Image btnSignUpLeave = Image.FromFile(@"D:\qnote\img\btn_signup_leave.png");
+        Image btnSignUpEnter = Image.FromFile(@"D:\qnote\img\btn_signup_enter.png");
+        Image btnOkLeave = Image.FromFile(@"D:\qnote\img\btn_ok_leave.png");
+        Image btnOkEnter = Image.FromFile(@"D:\qnote\img\btn_ok_enter.png");
+
         public SignIn()
         {
             InitializeComponent();
@@ -27,22 +33,22 @@ namespace qnote
 
         private void PictureBox2_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox2.Image = Image.FromFile(@"D:\qnote\img\btn_signup_leave.png");
+            pictureBox2.Image = btnSignUpLeave;
         }
 
         private void PictureBox2_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox2.Image = Image.FromFile(@"D:\qnote\img\btn_signup_enter.png");
+            pictureBox2.Image = btnSignUpEnter;
         }
 
         private void PictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_ok_leave.png");
+            pictureBox1.Image = btnOkLeave;
         }
 
         private void PictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_ok_enter.png");
+            pictureBox1.Image = btnOkEnter;
         }
 
         private void label1_Click(object sender, EventArgs e)

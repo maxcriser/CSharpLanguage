@@ -17,8 +17,13 @@ namespace qnote
         private string errorUsername = "This username is already registered.";
         private string errorPassword = "Passwords do not match, please\ntry again.";
         private string errorAccept = "You must accept the conditions of\nregistration.";
-        static List<User> profiles = new List<User>();
+        List<User> profiles = new List<User>();
         List<User> statusProfile = new List<User>();
+
+        Image btnOkLeave = Image.FromFile(@"D:\qnote\img\btn_ok_leave.png");
+        Image btnOkEnter = Image.FromFile(@"D:\qnote\img\btn_ok_enter.png");
+        Image btnSignInLeave = Image.FromFile(@"D:\qnote\img\btn_signin_leave.png");
+        Image btnSignInEnter = Image.FromFile(@"D:\qnote\img\btn_signin_enter.png");
 
         String[] notesList = {
             Constants.ALL,
@@ -52,29 +57,29 @@ namespace qnote
 
         private void PictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_ok_leave.png");
+            pictureBox1.Image = btnOkLeave;
         }
 
         private void PictureBox2_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox2.Image = Image.FromFile(@"D:\qnote\img\btn_signin_leave.png");
+            pictureBox2.Image = btnSignInLeave;
         }
 
         private void PictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile(@"D:\qnote\img\btn_ok_enter.png");
+            pictureBox1.Image = btnOkEnter;
         }
 
         private void PictureBox2_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox2.Image = Image.FromFile(@"D:\qnote\img\btn_signin_enter.png");
+            pictureBox2.Image = btnSignInEnter;
         }
 
         void checkStatus()
         {
             statusProfile = Backend.ReadProfiles(Constants.statusPATH);
-            
-            if (statusProfile.Count!=0)
+
+            if (statusProfile.Count != 0)
             {
                 this.Hide();
                 MainActivity main = new MainActivity(statusProfile[0].username, statusProfile[0].password);
@@ -85,12 +90,12 @@ namespace qnote
 
         private void signin_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private Boolean checkForUsers(String username)
         {
-            foreach(User w in profiles)
+            foreach (User w in profiles)
             {
                 if (w.username.Equals(username))
                 {
@@ -102,7 +107,7 @@ namespace qnote
 
         private void signup_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -165,22 +170,25 @@ namespace qnote
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        void label2SetWantToSignText()
         {
             label2.Text = wantToSignText;
             label2.ForeColor = Color.White;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            label2SetWantToSignText();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            label2.Text = wantToSignText;
-            label2.ForeColor = Color.White;
+            label2SetWantToSignText();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            label2.Text = wantToSignText;
-            label2.ForeColor = Color.White;
+            label2SetWantToSignText();
         }
     }
 }
