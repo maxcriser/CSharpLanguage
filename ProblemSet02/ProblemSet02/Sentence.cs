@@ -7,9 +7,9 @@ using System.Text.RegularExpressions;
 
 namespace ProblemSet02
 {
-    class Sentence : TextElement, IComparable
+    class Sentence : ElementOfText, IComparable
     {
-        public List<TextElement> ListSentence = new List<TextElement>();
+        public List<ElementOfText> ListSentence = new List<ElementOfText>();
         private string pattern = @"(?<=[ .,!?:;\-\n])";
         public static char[] Delimeters = {'.', '!', '?'};
         private int numberOfWords = 0;
@@ -20,16 +20,16 @@ namespace ProblemSet02
             {
                 if (element != string.Empty)
                 {
-                    PunctuationMark pMark = null;
+                    Punct pMark = null;
                     Word word = null;
                     if (element.Length == 1)
                     {
-                        pMark = new PunctuationMark(element[0]);
+                        pMark = new Punct(element[0]);
                     } else
                     {
                         word = new Word(element.Substring(0, element.Length-1));
                         numberOfWords++;
-                        pMark = new PunctuationMark(element[element.Length - 1]);
+                        pMark = new Punct(element[element.Length - 1]);
                     }
                     if (word != null) ListSentence.Add(word);
                     if (pMark != null) ListSentence.Add(pMark);

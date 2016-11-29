@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProblemSet02
 {
-    abstract class TextElement
+    abstract class ElementOfText
     {
         public abstract string ConsoleOutputStructure();
     }

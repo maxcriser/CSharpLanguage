@@ -53,6 +53,7 @@ namespace ProblemSet02
 
         public string SortedText()
         {
+            //sort by wrds
             List<Sentence> sortSenteces = new List<Sentence>(Sentences);
             sortSenteces.Sort();
             return getText(sortSenteces);
@@ -120,7 +121,7 @@ namespace ProblemSet02
                 foreach (var element in sentence.ListSentence)
                 {
                     Word word = element as Word;
-                    PunctuationMark pMark = element as PunctuationMark;
+                    Punct pMark = element as Punct;
                     if (word != null)
                     {
                         if (!stats.ContainsKey(word.ToString()))

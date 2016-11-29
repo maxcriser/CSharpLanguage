@@ -1,0 +1,11 @@
+D:\GitHub Projects\CSharp\Market\Market\bin\Debug\Market.exe.config
+D:\GitHub Projects\CSharp\Market\Market\bin\Debug\Market.exe
+D:\GitHub Projects\CSharp\Market\Market\bin\Debug\Market.pdb
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.csprojResolveAssemblyReference.cache
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.Form1.resources
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.Properties.Resources.resources
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.Signin.resources
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.csproj.GenerateResource.Cache
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.exe
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.pdb
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.AdminPanel.resources

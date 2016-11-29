@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProblemSet02
 {
-    class Symbol : TextElement
+    class Symbol : ElementOfText
     {
         public char character;
         private char[] vowels = {'a', 'e', 'u', 'y', 'o', 'i', 'A', 'E', 'U', 'Y', 'O', 'I'};

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProblemSet02
 {
-    class PunctuationMark : TextElement
+    class Punct : ElementOfText
     {
         public char character;
         public static char[] Delimeters = {' ', '.', ',', ':', ';', '!', '?', '-', '\n'};
 
-        public PunctuationMark(char c)
+        public Punct(char c)
         {
             this.character = c;
         }

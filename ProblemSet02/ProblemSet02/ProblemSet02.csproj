@@ -43,13 +43,13 @@
   <ItemGroup>
     <Compile Include="Concordance.cs" />
     <Compile Include="Examples.cs" />
-    <Compile Include="PunctuationMark.cs" />
+    <Compile Include="Punct.cs" />
     <Compile Include="Sentence.cs" />
     <Compile Include="Symbol.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text.cs" />
-    <Compile Include="TextElement.cs" />
+    <Compile Include="ElementOfText.cs" />
     <Compile Include="TextReader.cs" />
     <Compile Include="Word.cs" />
     <Compile Include="WComparer.cs" />

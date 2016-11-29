@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProblemSet02
 {
-    class Word : TextElement, IComparable
+    class Word : ElementOfText, IComparable
     {
         public List<Symbol> WordAsList = new List<Symbol>();
 
