@@ -1,0 +1,12 @@
+D:\Programming\Sources\C#\ProblemSet02\ProblemSet02\bin\Debug\ProblemSet02.exe.config
+D:\Programming\Sources\C#\ProblemSet02\ProblemSet02\obj\Debug\ProblemSet02.csprojResolveAssemblyReference.cache
+D:\Programming\Sources\C#\ProblemSet02\ProblemSet02\bin\Debug\ProblemSet02.exe
+D:\Programming\Sources\C#\ProblemSet02\ProblemSet02\bin\Debug\ProblemSet02.pdb
+D:\Programming\Sources\C#\ProblemSet02\ProblemSet02\obj\Debug\ProblemSet02.exe
+D:\Programming\Sources\C#\ProblemSet02\ProblemSet02\obj\Debug\ProblemSet02.pdb
+D:\GitHub Projects\CSharp\ProblemSet02\ProblemSet02\bin\Debug\ProblemSet02.exe.config
+D:\GitHub Projects\CSharp\ProblemSet02\ProblemSet02\obj\Debug\ProblemSet02.exe
+D:\GitHub Projects\CSharp\ProblemSet02\ProblemSet02\obj\Debug\ProblemSet02.pdb
+D:\GitHub Projects\CSharp\ProblemSet02\ProblemSet02\bin\Debug\ProblemSet02.exe
+D:\GitHub Projects\CSharp\ProblemSet02\ProblemSet02\bin\Debug\ProblemSet02.pdb
+D:\GitHub Projects\CSharp\ProblemSet02\ProblemSet02\obj\Debug\ProblemSet02.csprojResolveAssemblyReference.cache
