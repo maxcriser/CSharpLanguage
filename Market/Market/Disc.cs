@@ -14,9 +14,12 @@ namespace Market
         public Disc(String name, String state)
         {
             this.name = name;
-            this.state = state; // in stock or not available
+            this.state = state;
         }
 
-
+        public override string ToString()
+        {
+            return name + "(" + state + ")";
+        }
     }
 }
