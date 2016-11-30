@@ -44,7 +44,7 @@ namespace Market
             gridDiscs.Rows.Clear();
             foreach(Disc w in list)
             {
-                gridDiscs.Rows.Add(w.name, w.state, "delete");
+                gridDiscs.Rows.Add(w.name, w.state, "remove");
             }
         }
 
@@ -53,10 +53,9 @@ namespace Market
             if (!textBox1.Text.Equals(String.Empty))
             {
                 listDiscs.Add(new Disc(textBox1.Text, Constants.instock));
-
                 writeToXmlDiscs();
-                
                 notifyGridDiscs(listDiscs);
+                textBox1.Clear();
             }
         }
 

@@ -1,7 +1,1 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<head>
-  <user admin="0">
-    <login>maxcriser</login>
-    <password>maxim12Guest345</password>
-  </user>
-</head>
+﻿<?xml version="1.0" encoding="utf-8"?><Users><user username="admin" password="admin" /></Users>
