@@ -20,23 +20,8 @@ namespace Market
         {
             InitializeComponent();
             listDiscs = new List<Disc>();
-            //XMLEditor.CreateXml(Constants.ownerPATH + discs
-            LoadDiscs();
+            listDiscs = Backend.LoadDiscs();
             notifyGridDiscs(listDiscs);
-
-        }
-
-        private void LoadDiscs()
-        {
-            XmlDocument xdoc = new XmlDocument();
-            xdoc.Load(Constants.ownerPATH + discs);
-
-            foreach (XmlNode item in xdoc.DocumentElement)
-            {
-                string name = item.Attributes["name"].Value;
-                string state = item.Attributes["state"].Value;
-                listDiscs.Add(new Disc(name, state));
-            }
         }
 
         void notifyGridDiscs(List<Disc> list)
@@ -44,7 +29,7 @@ namespace Market
             gridDiscs.Rows.Clear();
             foreach(Disc w in list)
             {
-                gridDiscs.Rows.Add(w.name, w.state, "remove");
+                gridDiscs.Rows.Add(w.name, w.state, w.who, "remove");
             }
         }
 
@@ -52,29 +37,11 @@ namespace Market
         {
             if (!textBox1.Text.Equals(String.Empty))
             {
-                listDiscs.Add(new Disc(textBox1.Text, Constants.instock));
-                writeToXmlDiscs();
+                listDiscs.Add(new Disc(textBox1.Text, Constants.instock, "shop.com"));
+                Backend.writeToXmlDiscs(listDiscs);
                 notifyGridDiscs(listDiscs);
                 textBox1.Clear();
             }
-        }
-
-        void writeToXmlDiscs()
-        {
-            XmlTextWriter writer = new XmlTextWriter(Constants.ownerPATH + discs, Encoding.UTF8);
-            writer.WriteStartDocument();
-
-            writer.WriteStartElement("Discs");
-            for (int i = 0; i < listDiscs.Count; i++)
-            {
-                writer.WriteStartElement("disc");
-                writer.WriteAttributeString("name", listDiscs[i].name);
-                writer.WriteAttributeString("state", listDiscs[i].state);
-                writer.WriteEndElement();
-            }
-            writer.WriteEndElement();
-            writer.WriteEndDocument();
-            writer.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -84,11 +51,11 @@ namespace Market
 
         private void gridDiscs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex.Equals(2))
+            if (e.ColumnIndex.Equals(3))
             {
                 listDiscs.RemoveAt(e.RowIndex);
                 notifyGridDiscs(listDiscs);
-                writeToXmlDiscs();
+                Backend.writeToXmlDiscs(listDiscs);
             }
         }
     }

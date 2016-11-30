@@ -52,6 +52,7 @@ namespace Market
                     writer.WriteStartElement("user");
                     writer.WriteAttributeString("username", Signin.profiles[i].username);
                     writer.WriteAttributeString("password", Signin.profiles[i].password);
+
                     writer.WriteEndElement();
                 }
                 writer.WriteEndElement();
@@ -63,7 +64,6 @@ namespace Market
                 shop.ShowDialog();
                 this.Close();
             }
-
             textBox1.Clear();
             textBox2.Clear();
         }

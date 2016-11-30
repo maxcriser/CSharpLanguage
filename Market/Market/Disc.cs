@@ -8,18 +8,20 @@ namespace Market
 {
     class Disc
     {
-        public String name { get; private set; }
-        public String state { get; private set; }
+        public String name { get; set; }
+        public String state { get; set; }
+        public String who { get; set;  }
 
-        public Disc(String name, String state)
+        public Disc(String name, String state, String who)
         {
             this.name = name;
             this.state = state;
+            this.who = who;
         }
 
         public override string ToString()
         {
-            return name + "(" + state + ")";
+            return name + "(" + state + ")" + who;
         }
     }
 }

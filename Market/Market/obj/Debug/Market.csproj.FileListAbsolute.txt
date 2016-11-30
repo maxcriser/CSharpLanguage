@@ -10,3 +10,4 @@ D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.exe
 D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.pdb
 D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.AdminPanel.resources
 D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.Signup.resources
+D:\GitHub Projects\CSharp\Market\Market\obj\Debug\Market.Shop.resources
